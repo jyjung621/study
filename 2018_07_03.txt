@@ -1,0 +1,75 @@
+07.03(화)
+
+교재 : <이것이 자바다>
+
+//-- Tool 설치 --//
+
+1. Java SDK (JDK ver.8  jdk-8u172)
+ - www.oracle.com --> java overview 이동
+ - https://www.oracle.com/technetwork/java/javase/downloads/index.html
+ 
+ - 환경변수 추가
+    
+  [시스템 변수]
+    -. NAME : JAVA_HOME
+    -. VALUE : 경로(C:\Program Files\Java\jdk1.8.0_172)
+    
+  [사용자 변수]
+    -. NAME : Path
+    -. VALUE : 경로(%JAVA_HOME%\bin)
+
+2. IDE(eClipse)
+ - http://www.eclipse.org/downloads/
+ - Eclipse IDE for Java EE Developers 선택 (JSP 등등 사용하기위해)
+
+3. Document download
+ - http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html
+
+----------------------------------------------------------------------------------
+
+//-- Eclipse 환경설정 --//
+
+1. Preferences -> enc검색
+
+2. content types -> text -> css && javascript source file && jsp && xml -> Default encoding : utf-8 update
+
+3. 나머지 항목 전부 utf-8로 세팅
+
+
+
+//-- Java project 생성 --//
+
+1. 프로젝트 생성 (Java EE (x) Java (o))
+  - file -> nes -> java project
+
+2. class 생성
+  - src -> new -> class
+  - class name 첫글자 대문자
+
+3. 코딩
+ - crtl + spacebar  단축키   syso -> System.out.println();
+
+
+
+----------------------------------------------------------------------------------
+
+//-- Study 추천 사이트 --//
+
+1. 인프런
+  - https://www.inflearn.com/
+
+2. Java2novice
+  - http://java2novice.com/
+
+3. JavaTpoint
+  - http://javatpoint.com/
+
+
+
+
+
+
+
+
+
+
