@@ -13,4 +13,4 @@
 
 - 로그인 시간 유지
   -. git config --global credential.helper 'cahe --timeout=3600'
-
+  -. git config --global credential.helper
