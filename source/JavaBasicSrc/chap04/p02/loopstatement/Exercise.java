@@ -1,13 +1,17 @@
 package p02.loopstatement;
 
+import java.util.Scanner;
+
 public class Exercise {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		exercise03();
-		exercise04();
-		exercise05();
+//		exercise03();
+//		exercise04();
+//		exercise05();
+//		exercise06();
+		exercise07();
 	}
 	
 	public static void exercise03()
@@ -74,9 +78,76 @@ public class Exercise {
 	
 	public static void exercise06()
 	{
+		/***********************************
+		 *  star 출력하기
+		 *  *
+		 *  **
+		 *  ***
+		 *  ****
+		 *  *****
+		 *  ********************************/
+		System.out.println("** 6번문제 **");
 		
+		for(int i=0; i<5; i++)
+		{
+			for(int j=0; j<=i; j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 	
+	public static void exercise07()
+	{
+		/************************************************************
+		 * while문과 Scanner를 이용, 키보드로부터 입력된 데이터로 예금, 출금, 조회, 종료 기능을
+		 * Control하는 프로그램을 작성하여라.
+		 * ouput :  ... 미안하지만 책참조하자 (이것이자바다 chap04 p.136)
+		 ************************************************************/
+		System.out.println("** 7번문제 **");
+		
+		boolean run = true;
+		int balance = 0;
+		
+		Scanner scanner = new Scanner(System.in);
+		String inputString;
+		
+		while(run)
+		{
+			System.out.println("-------------------------");
+			System.out.println("1.예금 | 2.출금 | 3.잔고 | 4.종료");
+			System.out.println("-------------------------");
+			System.out.println("선택 > ");
+			
+			inputString = scanner.nextLine();	// 입력 받아옮
+			
+			//System.out.println("scanner = " + inputString);
+			switch(inputString)
+			{
+				case "1":
+					System.out.println("예금액> ");
+					// 입력 받은 값을 가져옮
+					inputString = scanner.nextLine();
+					// String -> int 변환하여 balance에 연산함
+					balance += Integer.parseInt(inputString);
+					break;
+				case "2":
+					System.out.println("출금액> ");
+					inputString = scanner.nextLine();
+					balance -= Integer.parseInt(inputString);
+					break;
+				case "3":
+					System.out.println("잔고> " + balance);
+					break;
+				case "4":
+					run = false;
+					break;
+				default:
+					break;
+			}
+		}
+		System.out.println("프로그램 종료");
+	}
 	
-
 }
