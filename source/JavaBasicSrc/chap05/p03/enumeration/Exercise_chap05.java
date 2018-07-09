@@ -8,8 +8,8 @@ public class Exercise_chap05 {
 		// TODO Auto-generated method stub
 		
 		//exercise07();
-		//exercise08();
-		exercise09();
+		exercise08();
+		//exercise09();
 
 	}
 	
@@ -55,12 +55,20 @@ public class Exercise_chap05 {
 		 *  raw에 대한 임시 배열을 for문으로 만든뒤, col에 대하여 중첩 for문으로 실행
 		 *  ps.말이 이상한대... 그냥 code 보고 이해하자!
 		 *********************************************************/		
-		for(int[] tmp : array)
+		/*for(int[] tmp : array)
 		{
 			for(int tmp1 : tmp)
 			{
 				sum += tmp1;	// 총합 구하기
 				cnt++;			// 전체 배열 갯수 check
+			}
+		}*/
+		for(int i=0; i<array.length; i++)
+		{
+			for(int j=0; j<array[i].length; j++)
+			{
+				sum += array[i][j];
+				cnt++;
 			}
 		}
 		avg = (double) sum / cnt;
