@@ -1,61 +1,61 @@
 07.03(È­)
 
-±³Àç : <ÀÌ°ÍÀÌ ÀÚ¹Ù´Ù>
+ï¿½ï¿½ï¿½ï¿½ : <ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½Ú¹Ù´ï¿½>
 
-//-- Tool ¼³Ä¡ --//
+//-- Tool ï¿½ï¿½Ä¡ --//
 
 1. Java SDK (JDK ver.8  jdk-8u172)
- - www.oracle.com --> java overview ÀÌµ¿
+ - www.oracle.com --> java overview ï¿½Ìµï¿½
  - https://www.oracle.com/technetwork/java/javase/downloads/index.html
- 
- - È¯°æº¯¼ö Ãß°¡
-    
-  [½Ã½ºÅÛ º¯¼ö]
+
+ - È¯ï¿½æº¯ï¿½ï¿½ ï¿½ß°ï¿½
+
+  [ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]
     -. NAME : JAVA_HOME
-    -. VALUE : °æ·Î(C:\Program Files\Java\jdk1.8.0_172)
-    
-  [»ç¿ëÀÚ º¯¼ö]
+    -. VALUE : ï¿½ï¿½ï¿½ï¿½(C:\Program Files\Java\jdk1.8.0_172)
+
+  [ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]
     -. NAME : Path
-    -. VALUE : °æ·Î(%JAVA_HOME%\bin)
+    -. VALUE : ï¿½ï¿½ï¿½ï¿½(%JAVA_HOME%\bin)
 
 2. IDE(eClipse)
  - http://www.eclipse.org/downloads/
- - Eclipse IDE for Java EE Developers ¼±ÅÃ (JSP µîµî »ç¿ëÇÏ±âÀ§ÇØ)
+ - Eclipse IDE for Java EE Developers ï¿½ï¿½ï¿½ï¿½ (JSP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-3. Document download
+3. Document download(Java 8 API)
  - http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html
 
 ----------------------------------------------------------------------------------
 
-//-- Eclipse È¯°æ¼³Á¤ --//
+//-- Eclipse È¯ï¿½æ¼³ï¿½ï¿½ --//
 
-1. Preferences -> enc°Ë»ö
+1. Preferences -> encï¿½Ë»ï¿½
 
 2. content types -> text -> css && javascript source file && jsp && xml -> Default encoding : utf-8 update
 
-3. ³ª¸ÓÁö Ç×¸ñ ÀüºÎ utf-8·Î ¼¼ÆÃ
+3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ utf-8ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 
-//-- Java project »ý¼º --//
+//-- Java project ï¿½ï¿½ï¿½ï¿½ --//
 
-1. ÇÁ·ÎÁ§Æ® »ý¼º (Java EE (x) Java (o))
+1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (Java EE (x) Java (o))
   - file -> nes -> java project
 
-2. class »ý¼º
+2. class ï¿½ï¿½ï¿½ï¿½
   - src -> new -> class
-  - class name Ã¹±ÛÀÚ ´ë¹®ÀÚ
+  - class name Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ë¹®ï¿½ï¿½
 
-3. ÄÚµù
- - crtl + spacebar  ´ÜÃàÅ°   syso -> System.out.println();
+3. ï¿½Úµï¿½
+ - crtl + spacebar  ï¿½ï¿½ï¿½ï¿½Å°   syso -> System.out.println();
 
 
 
 ----------------------------------------------------------------------------------
 
-//-- Study ÃßÃµ »çÀÌÆ® --//
+//-- Study ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½Æ® --//
 
-1. ÀÎÇÁ·±
+1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   - https://www.inflearn.com/
 
 2. Java2novice
@@ -63,13 +63,3 @@
 
 3. JavaTpoint
   - http://javatpoint.com/
-
-
-
-
-
-
-
-
-
-
