@@ -10,13 +10,15 @@
 
  - ȯ�溯�� �߰�
 
-  [�ý��� ����]
+  [시스템 변수]
     -. NAME : JAVA_HOME
     -. VALUE : ����(C:\Program Files\Java\jdk1.8.0_172)
+    C:\Program Files\Java\jdk1.8.0_172
 
-  [������ ����]
+  [사용자 변수]
     -. NAME : Path
     -. VALUE : ����(%JAVA_HOME%\bin)
+    C:\Program Files\Java\jdk1.8.0_172\bin;C:\Users\Administrator\AppData\Local\atom\bin;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin
 
 2. IDE(eClipse)
  - http://www.eclipse.org/downloads/
