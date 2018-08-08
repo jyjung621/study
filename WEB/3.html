@@ -52,14 +52,28 @@
       target.style.backgroundColor='black';
       target.style.color = 'white';
       this.value = 'day';
+
+      var alist = document.querySelectorAll('a');
+      var i=0;
+      while(i < alist.length) {
+        alist[i].style.color = 'powderblue';
+        i++;
+      }
     } else {
       target.style.backgroundColor='white';
       target.style.color = 'black';
       this.value = 'night';
+
+      var alist = document.querySelectorAll('a');
+      var i=0;
+      while(i < alist.length) {
+        alist[i].style.color = 'blue';
+        i++;
+      }
     }
   ">
   <ol>
-    <li><a href="1.html" target="_self"> HTML</a></li>
+    <li><a href="1.html" target="_self" color="red"> HTML</a></li>
     <li><a href="2.html" target="_self">CSS</a></li>
     <li><a href="3.html" target="_self"><span class="js"> JavaScript </span></a></li>
   </ol>
