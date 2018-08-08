@@ -1,0 +1,150 @@
+-- DUAL : table 이름으로, ORACLE에서 제공하는 dummy table
+DESC DUAL;
+SELECT * FROM DUAL;
+
+SELECT -10, ABS(-10)
+FROM DUAL;
+-- 소수점 이하는 버림
+SELECT 34.5678, FLOOR(34.5678) FROM DUAL;
+-- 소숫점 첫번째 자리에서 반올림
+SELECT 34.5678, ROUND(34.5678) FROM DUAL;
+-- ROUND(대상, 자릿수) : 지정한 자릿수에서 반올림하도록 지정할 수 있음(소수점 아래로)
+SELECT 34.5678, ROUND(34.5678, 2) FROM DUAL;
+-- (소수점 위로)
+SELECT 34.5678, ROUND(34.5678, -1) FROM DUAL;
+-- TRUNC : 특정 자릿수 이하를 버림
+SELECT TRUNC(34.5678,2),TRUNC(34.5678,-1), TRUNC(34.5678)FROM DUAL;
+-- MOD : 나머지를 구하는 연산자
+SELECT MOD(27,2), MOD(27,5), MOD(27,7) FROM DUAL;
+
+-- EMP TABLE에서 사번이 홀수인 직원만 출력
+SELECT * FROM EMP WHERE MOD(EMPNO, 2)<>0;
+
+-- 문자열을 모두 대문자로 변경
+SELECT 'Welcome to Oracle', UPPER('Welcome to Oracle') FROM DUAL;
+-- 문자열을 모두 소문자로 변경
+SELECT 'Welcome to Oracle', LOWER('Welcome to Oracle') FROM DUAL;
+
+SELECT empno, ename, job from emp WHERE job=UPPER('manager');
+SELECT empno, ename, job from emp WHERE LOWER (job)='manager';
+
+-- LENGTH : 영문(1바이트), 한글(3바이트)에 무관하게 글자수를 알려줌
+SELECT LENGTH('Oracle'), LENGTH('오라클') FROM DUAL;
+-- LENGTHB : 문자의 바이트 수를 알려주는 함수
+SELECT LENGTHB('Oracle'), LENGTHB('오라클') FROM DUAL;
+-- SUBSTR(대상, 시작위치, 추출할 갯수) : 시작위치부터 선택 갯수만큼 문자를 추출함
+-- Oracle에서는 index가 1부터 시작
+SELECT SUBSTR('Welcome to Oracle', 4, 3) FROM DUAL;
+-- 시작위치가 음수이면, 문자열의 뒤쪽에서부터 세어서 추출함
+SELECT SUBSTR('Welcome to Oracle', -4, 3) FROM DUAL;
+
+-- 9월에 입사한 사원을 출력해보시오
+SELECT * FROM EMP WHERE SUBSTR(HIREDATE, 4, 2)='09';
+
+SELECT * FROM EMP WHERE SUBSTR(HIREDATE, 1,2)='87';
+SELECT ENAME FROM EMP WHERE SUBSTR(ENAME, -1, 1)='E';
+SELECT ENAME FROM EMP WHERE ENAME LIKE '%E';
+
+SELECT SUBSTR('웰컴투오라클', 3, 4), SUBSTRB('웰컴투오라클', 3, 4) FROM DUAL;
+
+-- INSTR(대상, 찾을글자, 시작위치, 몇번째발견)
+SELECT INSTR('WELCOME TO ORACLE', 'O') FROM DUAL;
+SELECT INSTR('WELCOME TO ORACLE', 'O', 6, 2) FROM DUAL;
+
+SELECT * FROM EMP WHERE ENAME LIKE '__R%';
+SELECT * FROM EMP WHERE INSTR(ENAME, 'R')=3;
+
+-- 문자열을 명시된 자릿수에서 오른쪽에 표시하고, 남은 왼쪽 공간에 특정 기호로 채움
+SELECT LPAD('Oracle', 20, '#') FROM DUAL;
+-- RTRIM : 공백문자를 삭제하는 함수
+SELECT RTRIM(' Oracle ') FROM DUAL;
+-- TRIM : 대상문자열에서 특정문자가 첫번째 글자이거나,
+-- 마지막 글자이면 잘라내고 남은문자열만 반환
+SELECT TRIM('a' FROM 'aaaaOracleaaa') FROM DUAL;
+
+-- SYSDATE-1 어제, SYSDATE 오늘, SYSDATE+1 내일
+SELECT SYSDATE FROM DUAL;
+
+SELECT * FROM EMP;
+SELECT SYSDATE-HIREDATE AS 근무일수 FROM EMP;
+SELECT HIREDATE, ROUND(HIREDATE, 'MONTH') FROM EMP;
+SELECT HIREDATE, TRUNC(HIREDATE, 'MONTH') FROM EMP;
+
+SELECT ENAME, SYSDATE, HIREDATE,
+MONTHS_BETWEEN (SYSDATE, HIREDATE)
+FROM EMP;
+
+SELECT ENAME, SYSDATE, HIREDATE,
+TRUNC(MONTHS_BETWEEN (SYSDATE, HIREDATE))
+FROM EMP;
+
+SELECT ENAME, HIREDATE, ADD_MONTHS(HIREDATE, 6)
+FROM EMP;
+
+SELECT SYSDATE, NEXT_DAY(SYSDATE, '수요일')
+FROM DUAL;
+
+SELECT HIREDATE, LAST_DAY(HIREDATE)
+FROM EMP;
+
+SELECT SYSDATE, TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+FROM DUAL;
+SELECT HIREDATE, TO_CHAR(HIREDATE, 'YYYY/MM/DD DAY')
+FROM EMP;
+-- DY : 요일을 약어로 표시
+SELECT HIREDATE, TO_CHAR(HIREDATE, 'YY/MON/DD DY')
+FROM EMP;
+
+SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD, HH24:MI:SS')
+FROM DUAL;
+SELECT TO_CHAR(1230000)
+FROM DUAL;
+
+SELECT ENAME, SAL, TO_CHAR(SAL, 'L999,999')
+FROM EMP;
+-- 0 : 자릿수를 나타내며, 빈자리가 있으면 0으로 채움
+-- 9 : 자릿수가 맞지 않아도 채우지 않음
+SELECT TO_CHAR(123456, '000000000'),
+TO_CHAR(123456,'999,999,999')
+FROM DUAL;
+-- 숫자형태를 TO_DATE함수를 사용해 날짜형으로 변환.
+-- 출력할 형식을 지정해 주어야 함
+SELECT ENAME, HIREDATE FROM EMP
+WHERE HIREDATE=TO_DATE(19810501, 'YYYYMMDD');
+
+SELECT TRUNC(SYSDATE-TO_DATE('2008/01/01', 'YYYY/MM/DD'))
+FROM DUAL;
+-- 산술 연산하려면 문자형을 숫자형으로 변환해야 함
+SELECT TO_NUMBER('20,000', '99,999') - TO_NUMBER('10,000', '99,999')
+FROM DUAL;
+
+SELECT ENAME, SAL, COMM, SAL*12+COMM, NVL(COMM, 0), SAL*12+NVL(COMM,0)
+FROM EMP ORDER BY JOB;
+-- 상관이 없는 사원(MGR 컬럼값이 NULL인 경우)만 출력하되,
+-- MGR 컬럼값을 NULL 대신 CEO로 출력 => 숫자를 문자형으로 변환 해줘야함
+-- NULL은 NUMBER, VARCHAR2, DATE 등 모든 DATA TYPE에 사용 가능
+-- NVL(EXP1, EXP2) => 1. EXP1, EXP2의 데이터타입은 동일해야함
+-- 2. EXP1 IS NULL이면, EXP2를 RETURN하고, EXP1이 NULL이 아니면 EXP1을 리턴함
+SELECT EMPNO, ENAME, NVL(TO_CHAR(MGR, '9999'), 'CEO') AS MANAGER
+FROM EMP WHERE MGR IS NULL;
+
+-- DECODE : DECODE(표현식, 조건1, 결과1, 조건2, 결과2, ..., 기본결과)
+SELECT ENAME, DEPTNO, DECODE(DEPTNO, 10, 'ACCOUNTING', 20, 'RESEARCH',
+30, 'SLAES', 40, 'OPERATIONS') AS DNAME FROM EMP;
+-- 직급에 따라 급여 인상하시오.
+-- ANALYST 5%, SALESMAN 10%, MANAGER 15%, CLERK 20%
+SELECT EMPNO, ENAME, JOB, SAL,
+       DECODE(JOB, 'ANALYST', SAL*1.05,
+                   'SALESMAN', SAL*1.1,
+                   'MANAGER', SAL*1.15,
+                   'CLERK', SAL*1.2, SAL) AS UPSAL
+FROM EMP;
+
+SELECT ENAME, DEPTNO,
+    CASE WHEN DEPTNO=10 THEN 'ACCOUNTING'
+         WHEN DEPTNO=20 THEN 'RESEARCH'
+         WHEN DEPTNO=30 THEN 'SALES'
+         WHEN DEPTNO=40 THEN 'OPERATIONS'
+    END AS DNAME
+FROM EMP;
+
