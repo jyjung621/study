@@ -75,6 +75,7 @@ DROP TRIGGER trg_03;
 
 
 -- trigger 실습 (상품, 입고 테이블 실습)
+DROP TABLE 상품;
 CREATE TABLE 상품(
     상품코드 CHAR(6) PRIMARY KEY,
     상품명 VARCHAR2(12) NOT NULL,
@@ -83,6 +84,7 @@ CREATE TABLE 상품(
     재고수량 NUMBER DEFAULT 0
 );
 
+DROP TABLE 입고;
 CREATE TABLE 입고(
     입고번호 NUMBER(6) PRIMARY KEY,
     상품코드 CHAR(6) REFERENCES 상품(상품코드),
@@ -102,21 +104,41 @@ INSERT INTO 상품(상품코드, 상품명, 제조사, 소비자가격)
 
 SELECT * FROM 상품;
 
--- 입고 트리거 생성
+-- 입고 트리거 생성 (DB 저장)
 @C:\devenv\oracle실습\패키지트리거\trig04.SQL
 -- 상품 입고 정보 등록
+-- 입고1
 INSERT INTO 입고(입고번호, 상품코드, 입고수량, 입고단가, 입고금액) 
     VALUES(1, 'A00001', 5, 320, 1600);
+-- 입고2
 INSERT INTO 입고(입고번호, 상품코드, 입고수량, 입고단가, 입고금액) 
     VALUES(2, 'A00002', 10, 450, 4500);
+-- 입고3
+INSERT INTO 입고(입고번호, 상품코드, 입고수량, 입고단가, 입고금액) 
+    VALUES(3, 'A00003', 3, 220, 660);
+-- 입고3-1
+INSERT INTO 입고(입고번호, 상품코드, 입고수량, 입고단가, 입고금액) 
+    VALUES(4, 'A00003', 5, 220, 1100);
 
 SELECT * FROM 상품;
 SELECT * FROM 입고;
 
+-- 입고 정보 업데이트 트리거 생성 (DB 저장)
+@C:\devenv\oracle실습\패키지트리거\trig05.SQL
+-- 상품 정보 업데이트
+UPDATE 입고 SET 입고수량=10, 입고금액=2200
+WHERE 입고번호=3;
 
+SELECT * FROM 입고 ORDER BY 입고번호;
+SELECT * FROM 상품;
 
+-- 입고 기록 삭제 트리거
+@C:\devenv\oracle실습\패키지트리거\trig06.SQL
+-- 입고 기록 삭제
+DELETE 입고 WHERE 입고번호=3;
 
-
+SELECT * FROM 입고 ORDER BY 입고번호;
+SELECT * FROM 상품;
 
 
 

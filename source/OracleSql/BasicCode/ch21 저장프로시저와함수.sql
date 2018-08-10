@@ -49,5 +49,5 @@ EXECUTE cursor_sample01;
 @C:\devenv\oracle실습\저장프로시저\proc06.SQL
 EXECUTE cursor_sample02;
 
-
+select sal, sal*1.1 from emp;
 
