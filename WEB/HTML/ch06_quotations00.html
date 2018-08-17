@@ -1,0 +1,37 @@
+<!--
+    <abbr>	    Defines an abbreviation or acronym
+    <address>	Defines contact information for the author/owner of a document
+    <bdo>	    Defines the text direction
+    <blockquote>	Defines a section that is quoted from another source
+    <cite>	    Defines the title of a work
+    <q>	        Defines a short inline quotation
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <!-- 인용 표시 1) "" (짧은 인용구문) -->
+    <p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+
+    <!-- 인용 표시 2) section(문단)으로 나눔 
+                     cite로 출처 표시
+    -->
+    <p>Here is a quote from WWF's website:</p>
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100
+        countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+    </blockquote>
+
+    <!-- 인용 표시 3) ...으로 표시 후, 
+                     title내용을 tool tip으로 표시 
+    -->
+    <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+    <!-- 글자를 거꾸로(반대로) 나열하여 표시 -->
+    <bdo dir="rtl">This text will be written from right to left</bdo>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!--
+    HTML colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
+
+    In HTML, a color can be specified by using a color name:
+
+    Tomato
+    Orange
+    DodgerBlue
+    MediumSeaGreen
+    Gray
+    SlateBlue
+    Violet
+    LightGray
+
+    HTML supports 140 standard color names.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <!-- background color (배경색) -->
+    <h1 style="background-color:DodgerBlue;">Hello World</h1>
+    <p style="background-color:Tomato;">Lorem ipsum...</p>
+    <br>
+
+    <!-- text color (글자색) -->
+    <h1 style="color:Tomato;">Hello World</h1>
+    <p style="color:DodgerBlue;">Lorem ipsum...</p>
+    <p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+    <br>
+
+    <!-- border color (테두리색) -->
+    <h1 style="border:2px solid Tomato;">Hello World</h1>
+    <h1 style="border:4px solid DodgerBlue;">Hello World</h1>
+    <h1 style="border:6px solid Violet;">Hello World</h1>
+    <br>
+
+    <!-- color values (rgb, hex, hsl 표현 방법) 
+         *rgb(red, green, blue) -> 0 ~ 255
+         *#rrggbb -> red, green, blue 0 ~ ff
+         *hsl(hue, saturation, lightness) 
+             hue  -> 0 ~ 120 red    121 ~ 240 green     241 ~ 360 blue
+             saturation -> 0 ~ 100% (gray ~ full color)
+             lightness -> 0 ~ 50 ~ 100% (black ~ neither light or dark ~ white)
+        *다른 기능은 reference 찾아보기를...
+    -->
+    <p>Same as color name "Tomato":</p>
+    <h1 style="background-color:rgb(255, 99, 71);">...</h1>
+    <h1 style="background-color:#ff6347;">...</h1>
+    <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+    <p>Same as color name "Tomato", but 50% transparent:</p>
+    <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+    <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+
+</body>
+
+</html>
