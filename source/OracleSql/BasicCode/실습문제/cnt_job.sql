@@ -1,17 +1,21 @@
+--(13) 각 부서별로 같은 업무를 하는 사람의 인원수를 구하여 부서번호, 업무명, 인원수
+--를 출력하시오.
 CREATE OR REPLACE PROCEDURE cnt_job
-(
-    vdeptno OUT emp.deptno%TYPE,
-    vjob OUT emp.JOB%TYPE,
-    vcnt OUT NUMBER
-)
 IS
+    vemp emp%rowtype;  
+    cnt number;
+    CURSOR c1
+    IS
+    SELECT E.deptno, E.JOB, E.empno
+    FROM emp E;
 BEGIN
-    SELECT deptno, JOB, COUNT(empno) as empno_cnt 
-    INTO vdeptno, vjob, vcnt
-    FROM emp
-    GROUP BY deptno, JOB
-    ORDER BY deptno;
+    dbms_output.put_line('부서번호 / 업무명 / 인원수');
+    dbms_output.put_line('------------------------------');
     
+    FOR vemp IN c1 LOOP
+        EXIT WHEN c1%notfound;
+        dbms_output.put_line(vemp.deptno||' '||vemp.job||' '||vemp.empno);
+    END LOOP;
 END;
 /
     
@@ -23,9 +27,9 @@ END;
 --WHERE E.deptno=D.deptno 
 --GROUP BY D.deptno, E.JOB
 --order by d.deptno;
---
+----
 --SELECT e.deptno, e.job, COUNT(E.empno)
 --FROM emp E
 --GROUP BY e.deptno, E.JOB
 --ORDER BY e.deptno;
-
+--

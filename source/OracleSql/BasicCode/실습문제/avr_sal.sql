@@ -5,8 +5,8 @@ IS
     avr_sal NUMBER(7,2);
     v_deptno number(2,0);
 BEGIN
-    SELECT D.deptno--, round(AVG(sal),0) 
-    INTO v_deptno--, avr_sal  
+    SELECT D.deptno
+    INTO v_deptno
     FROM dept D, emp E
     WHERE E.deptno=D.deptno
     group by d.deptno

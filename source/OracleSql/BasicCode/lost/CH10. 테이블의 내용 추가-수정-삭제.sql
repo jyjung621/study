@@ -75,3 +75,7 @@ SET SAL=SAL-500
 WHERE SAL >=3000;
 
 SELECT * FROM EMP01;
+
+
+
+select @ from emp;

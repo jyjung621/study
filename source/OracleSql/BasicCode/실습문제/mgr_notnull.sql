@@ -1,3 +1,4 @@
+-- 11. 직속상관이 있는 사원의 수 출력
 CREATE OR REPLACE FUNCTION mgr_notnull
 RETURN NUMBER
 IS
