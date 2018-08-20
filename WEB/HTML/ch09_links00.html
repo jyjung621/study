@@ -1,0 +1,120 @@
+<!--
+
+HTML links are hyperlinks.
+
+You can click on a link and jump to another document.
+When you move the mouse over a link, the mouse arrow will turn into a little hand.
+
+HTML Links - Syntax
+    <a href="url">link text</a>
+
+Use the <a> element to define a link
+Use the href attribute to define the link address
+Use the target attribute to define where to open the linked document
+Use the <img> element (inside <a>) to use an image as a link
+Use the id attribute (id="value") to define bookmarks in a page
+Use the href attribute (href="#value") to link to the bookmark
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--
+        HTML Link Colors
+
+        By default, a link will appear like this (in all browsers):
+        An unvisited link is underlined and blue
+        A visited link is underlined and purple
+        An active link is underlined and red
+        
+        You can change the default colors, by using CSS:
+            a:link : 방문하기 전
+            a:visited : 방문 이후
+            a:hover : link를 누를때
+            a:active : link에 마우스를 올렸을 때
+
+            text-decoration -> link의 밑줄 표시 여부 설정
+    -->
+    <style>
+        a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: pink;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>HTML Links - Hyperlinks</h2>
+    <p><a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a></p>
+    <br>
+
+
+    <h2>HTML Links - Local Links</h2>
+    <p><a href="html_images.asp">HTML Images</a> is a link to a page on this website.</p>
+    <p><a href="https://www.w3.org/">W3C</a> is a link to a website on the World Wide Web.</p>
+    <br>
+
+
+    <h2>HTML Links - Image as Link</h2>
+    <a href="default.asp">
+        <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+    </a>
+    <br><br>
+
+    <!--
+        The target attribute can have one of the following values:
+           * _blank - Opens the linked document in a new window or tab
+           * _self - Opens the linked document in the same window/tab as it was clicked (this is default)
+           * _parent - Opens the linked document in the parent frame
+           * _top - Opens the linked document in the full body of the window
+           * framename - Opens the linked document in a named frame
+    -->
+    <h2>HTML Links - The target Attribute</h2>
+    <a href="https://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
+    <a href="https://www.w3schools.com/html/" target="_top">HTML5 tutorial!</a>
+    <br><br>
+
+    <h2>HTML Links - Link Titles</h2>
+    <a href="https://www.w3schools.com/html/" title="Go to W3Schools HTML section">Visit our HTML Tutorial</a>
+    <br><br>
+
+
+    <h2>HTML Links - Bookmark</h2>
+    <p><a href="#C4">Jump to Chapter 4</a></p>
+    <h5>Chapter 1</h5>
+    <p>This chapter explains ba bla bla</p>
+    <h5>Chapter 2</h5>
+    <p>This chapter explains ba bla bla</p>
+    <h5>Chapter 3</h5>
+    <p>This chapter explains ba bla bla</p>
+    <h5 id="C4">Chapter 4</h5>
+    <p>This chapter explains ba bla bla</p>
+    <h5>Chapter 5</h5>
+    <p>This chapter explains ba bla bla</p>
+
+
+</body>
+
+</html>

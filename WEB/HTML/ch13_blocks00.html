@@ -1,0 +1,48 @@
+<!--
+
+    Block-level Elements
+
+    A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).
+
+    ---- EX -------
+    <address><article><aside><blockquote><canvas><dd><div><dl><dt><fieldset><figcaption><figure><footer><form><h1>-<h6><header><hr><li><main><nav><noscript><ol><output><p><pre><section><table><tfoot><ul><video>
+    ---------------
+
+    Inline Elements
+    
+    An inline element does not start on a new line and only takes up as much width as necessary.
+    This is an inline <span> element inside a paragraph.
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        div, span,
+        p {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 한줄 전체를 영역으로 필요할 때 -->
+    <h2>Block-level Elements</h2>
+    <div>Hello</div>
+    <div>World</div>
+    <p>The DIV element is a block element, and will start on a new line.</p>
+    <br><br>
+
+    <!-- 필요한 만큼만 영역을 지정할 때 -->
+    <h2>Inline Elements</h2>
+    <span>Hello</span>
+    <span>World</span>
+    <p>The SPAN element is an inline element, and will not start on a new line.</p>
+
+</body>
+
+</html>

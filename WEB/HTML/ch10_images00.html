@@ -1,0 +1,60 @@
+<!--
+    Images can improve the design and the appearance of a web page.
+
+    HTML Images Syntax
+    In HTML, images are defined with the <img> tag.
+    The <img> tag is empty, it contains attributes only, and does not have a closing tag.
+    The src attribute specifies the URL (web address) of the image:
+        <img src="url">
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /*This stylesheet sets the width of all images to 100%: */
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>HTML Image</h2>
+    <img src="ch10_pic_trulli.jpg" alt="Trulli" width="300" height="111">
+    <img src="ch10_img_girl.jpg" alt="Girl in a jacket" width="300" height="111">
+    <img src="ch10_img_chania.jpg" alt="Flowers in Chania" width="300" height="111">
+    <br><br>
+
+    <!-- Styling Images -->
+    <h2>Styling Images</h2>
+    <p>The image below has the width attribute set to 128 pixels, but the stylesheet overrides it, and sets the width to
+        100%.
+    </p>
+    <img src="ch10_html5.gif" alt="HTML5 Icon" width="128" height="128">
+
+    <p>The image below uses the style attribute, where the width is set to 128 pixels which overrides the stylesheet:</p>
+    <img src="ch10_html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;">
+    <br><br>
+
+    <!-- Images in Another Folder -->
+    <h2>Images in Another Folder</h2>
+    <p>It is common to store images in a sub-folder. You must then include the folder name in the src attribute:</p>
+
+    <img src="/images/ch10_html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;">
+    <br><br>
+
+    <h2>Images on Another Server</h2>
+    <p>더 알고 싶으면 아래 link 타고 GoGo!!</p>
+    <a href="https://www.w3schools.com/html/html_images.asp">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com" style="width:104px;height:142px;">
+    </a>
+    <br><br>
+
+
+
+
+</body>
+
+</html>
