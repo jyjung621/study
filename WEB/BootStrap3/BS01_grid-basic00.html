@@ -1,0 +1,52 @@
+<!--
+    Grid Classes
+    The Bootstrap grid system has four classes:
+
+    *xs (for phones - screens less than 768px wide)
+    *sm (for tablets - screens equal to or greater than 768px wide)
+    *md (for small laptops - screens equal to or greater than 992px wide)
+    *lg (for laptops and desktops - screens equal to or greater than 1200px wide)
+    
+    The classes above can be combined to create more dynamic and flexible layouts.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <p>Resize the browser window to see the effect.</p>
+  <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+  </div>
+</div>
+<!--
+    div class="col-*(1)-*(2)"  
+        *(1) : 화면 type ( xs, sm .. 등)
+        *(2) : 분할 할 크기  ( 12이하 )
+        **분할을 몇개로 하던 다 합해서 12개 이하로 해야함!!
+-->
+<div class="container-fluid">
+    <h1>Hello World!</h1>
+    <p>Resize the browser window to see the effect.</p>
+    <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
+    <div class="row">
+      <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+      <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!--
+    Dropdwon & Collapse
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Dropdowns</h2>
+        <p>The .dropdown class is used to indicate a dropdown menu.</p>
+        <p>Use the .dropdown-menu class to actually build the dropdown menu.</p>
+        <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".</p>
+        <p>The .divider class is used to separate links inside the dropdown menu with a thin horizontal line:</p>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" ; type="button" ; data-toggle="dropdown" ;>Dropdown Example<span
+                    class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <!--
+                    dropdown-header : header 추가
+                -->
+                <li class="dropdown-header">Dropdown header 1</li>
+                <!--
+                    dropdown list
+                -->
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <!--
+                    dropdown divider : 분리선 표시
+                -->
+                <li class="divider"></li>
+                <li class="dropdown-header">Dropdown header 2</li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+        <br>
+
+        <!--
+            Dropup : 위로 메뉴 열림
+            Active & Disable : 활성화 비활성화
+        -->
+        <h2>Dropdowns</h2>
+        <p>The .active class adds a blue background color to the active link.</p>
+        <p>The .disabled class disables a dropdown item (grey text color).</p>
+        <!--
+            dropup
+        -->
+        <div class="dropup">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Normal</a></li>
+                <!--
+                    Active & Disable
+                -->
+                <li class="disabled"><a href="#">Disabled</a></li>
+                <li class="active"><a href="#">Active</a></li>
+                <li><a href="#">Normal</a></li>
+            </ul>
+        </div>
+        <br>
+
+        <!--
+            screen reader 관련 사항
+        -->
+        <h2>Dropdowns</h2>
+        <p>The .dropdown class is used to indicate a dropdown menu.</p>
+        <p>Use the .dropdown-menu class to actually build the dropdown menu.</p>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-header"></div>
+
+    <!--
+        Collapse
+    -->
+    <div class="container">
+        <!--
+            Collapse
+                data-toggle="collapse"
+                data-target="#id"
+        -->
+        <h2>Simple Collapsible</h2>
+        <p>Click on the button to toggle between showing and hiding content.</p>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo01">Simple collapsible</button>
+        <div id="demo01" class="collapse">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <br><br>
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo02">Simple collapsible</button>
+        <!--
+            collapse in : 펼쳐서 보여줌
+        -->
+        <div id="demo02" class="collapse in">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <br>
+
+        <!--
+            Collapsible Panel
+        -->
+        <h2>Collapsible Panel</h2>
+        <p>Click on the collapsible panel to open and close it.</p>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse01">Collapsible panel</a>
+                    </h4>
+                </div>
+                <div id="collapse01" ; class="panel-collapse collapse">
+                    <div class="panel-body">Panel Body</div>
+                    <div class="panel-footer">Panel Footer</div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <h2>Collapsible List Group Panel</h2>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse02">Collapsible list group</a>
+                    </h4>
+                </div>
+                <div id="collapse02" class="panel-collapse collapse">
+                    <ul class="list-group">
+                        <li class="list-group-item">One</li>
+                        <li class="list-group-item">Two</li>
+                        <li class="list-group-item">Three</li>
+                    </ul>
+                    <div class="panel-footer">Footer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+        Accordion
+            -> 패널 열면 다른 패널 자동 닫힘
+    -->
+    <div class="container">
+        <h2>Accordion Example</h2>
+        <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under
+            the specified parent will be closed when one of the collapsible item is shown.</p>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse03">Collapsible Group 1</a>
+                    </h4>
+                </div>
+                <div id="collapse03" class="panel-collapse collapse in">
+                    <div class="panel-body">11</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse04">Collapsible Group 2</a>
+                    </h4>
+                </div>
+                <div id="collapse04" class="panel-collapse collapse">
+                    <div class="panel-body">22</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse05">Collapsible Group 3</a>
+                    </h4>
+                </div>
+                <div id="collapse05" class="panel-collapse collapse">
+                    <div class="panel-body">33</div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+
+
+</body>
+
+</html>
