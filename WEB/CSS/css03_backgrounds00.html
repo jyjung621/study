@@ -1,0 +1,77 @@
+<!--
+    CSS background properties:
+
+        background-color
+        background-image
+        background-repeat
+        background-attachment
+        background-position
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            background-color: green;
+        }
+
+        p {
+            background-color: yellow;
+        }
+
+        div {
+
+            background-image: url("css03_bubble.jpg");
+            /* 세로 반복 중지 */
+            background-repeat: repeat-x;
+            /* 가로 반복 중지 */
+            background-repeat: repeat-y;
+            /* 반복 x  한번만 실행 */
+            background-repeat: no-repeat;
+            /* image 위치 선정 */
+            background-position: right top;
+            /* image 위치 고정 ( 글자 겹침 x -> 그림 밑으로 전부 ) */
+            background-attachment: fixed;
+            /* image 위치 고정 ( 글자 겹침 x -> 그림 크기만큼 ) */
+            background: #ffffff url("img_tree.png") no-repeat right top;
+            margin-right: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hello World!</h1>
+    <p>This page has a light blue background color!</p>
+    <br><br>
+
+    <h1>CSS background-color example!</h1>
+    <div>
+        This page has an image as the background!<br> This is a text inside a div element.
+        <p>This paragraph has its own background color.</p>
+        We are still in the div element.
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+    <br><br>
+
+
+
+
+</body>
+
+</html>

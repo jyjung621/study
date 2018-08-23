@@ -1,0 +1,85 @@
+<!--
+    
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        p {
+            color: red;
+            text-align: center;
+        }
+
+        /* id 선언 */
+        #para1 {
+            text-align: center;
+            color: blueviolet;
+        }
+
+        /* 모든 element에 적용 가능한 클래스 선언 */
+        .center {
+            text-align: center;
+            color: blue;
+        }
+
+        /* <p> element에만 적용 가능한 클래스 선언 */
+        p.center01 {
+            text-align: center;
+            color: deeppink;
+        }
+
+        p.large {
+            font-size: 300%;
+        }
+
+        /* group selector */
+        h2,
+        h3,
+        #para2 {
+            text-align: center;
+            color:springgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Hello World!</p>
+    <p>These paragraphs are styled with CSS.</p>
+    <br><br>
+
+    <p id="para1">Hello World!</p>
+    <p>This paragraph is not affected by the #para1 style.</p>
+    <br><br>
+
+    <h1 class="center">Blue and center-aligned heading</h1>
+    <p class="center">Blue and center-aligned paragraph.</p>
+    <br><br>
+
+    <!--
+        <p> element에만 적용 가능한 클래스 선언
+    -->
+    <h1 class="center01">This heading will not be affected</h1>
+    <p class="center01">This paragraph will be red and center-aligned.</p>
+    <br><br>
+
+    <!--
+        class 중첩 적용 가능
+    -->
+    <h1 class="center01">This heading will not be affected</h1>
+    <p class="center01">This paragraph will be red and center-aligned.</p>
+    <p class="center01 large">This paragraph will be red, center-aligned, and in a large font-size.</p>
+    <br><br>
+
+    <!--
+        group selector
+    -->
+    <h2>Hello World!</h2>
+    <h3>Smaller heading!</h3>
+    <p id="para2">This is a paragraph.</p>
+    <br><br>
+</body>
+
+</html>
