@@ -1,0 +1,477 @@
+<!--
+    Supported Form Controls
+
+    Bootstrap supports the following form controls:
+        - input
+        - textarea
+        - checkbox
+        - radio
+        - select
+
+        -- more --
+        - static control
+        - input group
+        - control states
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Form control: input</h2>
+        <p>The form below contains two input elements; one of type text and one of type password:</p>
+        <form>
+            <div class="form-group">
+                <label for="usr">Name:</label>
+                <!--
+                    <input type="text" >
+                        .text
+                        .textarea
+                -->
+                <input type="text" class="form-control" id="usr">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd">
+            </div>
+        </form>
+        <br><br>
+
+        <h2>Form control: checkbox</h2>
+        <p>The form below contains three checkboxes. The last option is disabled:</p>
+        <form>
+            <!--
+                checkbox 설정
+                <div class="checkbox">
+                    .checkbox
+
+                input 타입 설정
+                <input type="checkbox" >
+                    .checkbox
+                
+            -->
+            <div class="checkbox">
+                <!--
+                    label로 감싸서 Option 1 이라는 text 표시
+                -->
+                <label><input type="checkbox" value="">Option 1</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">Option 2</label>
+            </div>
+            <div class="checkbox disabled">
+                <label><input type="checkbox" value="" disabled>Option 3</label>
+            </div>
+        </form>
+        <br><br>
+
+
+        <h2>Form control: inline checkbox</h2>
+        <p>The form below contains three inline checkboxes:</p>
+        <form>
+            <!--
+                 <label class="checkbox-inline">
+                    .checkbox-inline : inline 설정
+            -->
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">Option 1
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">Option 2
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="">Option 3
+            </label>
+        </form>
+        <br><br>
+
+
+        <h2>Form control: radio buttons</h2>
+        <p>The form below contains three radio buttons. The last option is disabled:</p>
+        <form>
+            <!--
+                radio 설정
+                <div class="radio">
+
+                <input type="radio" >
+            -->
+            <div class="radio">
+                <label><input type="radio" name="optradio" checked>Option 1</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="optradio">Option 2</label>
+            </div>
+            <div class="radio disabled">
+                <label><input type="radio" name="optradio" disabled>Option 3</label>
+            </div>
+        </form>
+        <br><br>
+
+
+        <h2>Form control: inline radio buttons</h2>
+        <p>The form below contains three inline radio buttons:</p>
+        <form>
+            <!--
+                radio inline 설정
+                <label class="radio-inline">
+                    .radio-inline
+            -->
+            <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Option 1
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Option 2
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Option 3
+            </label>
+        </form>
+        <br><br>
+
+
+        <h2>Form control: select</h2>
+        <p>The form below contains two dropdown menus (select lists):</p>
+        <form>
+            <div class="form-group">
+                <!--
+                    select list (select one)
+                    <select class="form-control" >
+                        .form-control
+                    
+                    Multiple select list
+                    <select multiple class="form-control" >
+                        .form-control
+                -->
+                <label for="sel1">Select list (select one):</label>
+                <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <br>
+                <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
+                <select multiple class="form-control" id="sel2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div class="page-header"></div>
+
+    <!--
+        more
+    -->
+    <div class="container">
+        <h2>Horizontal form with static control</h2>
+        <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <!--
+                        text로 표현하기 위한 방법 <P>
+                        <p class="form-control-static">
+                            .form-control-static
+                    -->
+                    <p class="form-control-static">someone@example.com</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+        <br><br>
+
+
+        <h3>Input Groups</h3>
+        <p>The .input-group class is a container to enhance an input by adding an icon, text or a button in front or behind
+            it as a "help text".</p>
+        <p>The .input-group-addon class attaches an icon or help text next to the input field.</p>
+        <form>
+            <!--
+                아이콘과 input text를 그룹으로 묶음
+                <div class="input-group">    
+                    .input-group
+                <span class="input-group-addon">
+                    .input-group-addon
+
+                input & span 위치에 따라 앞뒤 아이콘 위치 변경 가능
+            -->
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">Text</span>
+                <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+            </div>
+        </form>
+        <br>
+
+        <p>It can also be used on the right side of the input:</p>
+        <form>
+            <div class="input-group">
+                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            </div>
+            <div class="input-group">
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            </div>
+        </form>
+        <br><br>
+
+
+        <h1>Input Group Button</h1>
+        <p>The .input-group class is a container to enhance an input by adding an icon, text or a button in front or behind
+            it as a "help text".</p>
+        <p>The .input-group-btn class attaches a button next to an input field. This is often used as a search bar:</p>
+        <form action="/action_page.php">
+            <!--
+                input text와 버튼을 그룹으로 묶음
+                <input type="text" >
+                <div class="input-group-btn">
+                    .input-group-btn
+            -->
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <br><br>
+
+
+        <!--
+            INPUT FOCUS - The outline of the input is removed and a box-shadow is applied on focus
+            DISABLED INPUTS - Add a disabled attribute to disable an input field
+            DISABLED FIELDSETS - Add a disabled attribute to a fieldset to disable all controls within
+            READONLY INPUTS - Add a readonly attribute to an input to prevent user input
+            VALIDATION STATES - Bootstrap includes validation styles for error, warning, and success messages. To use, add .has-warning, .has-error, or .has-success to the parent element
+            ICONS - You can add feedback icons with the .has-feedback class and an icon
+            HIDDEN LABELS - Add a .sr-only class on non-visible labels
+        -->
+        <h2>Horizontal form: control states</h2>
+        <!--
+            <form class="form-horizontal">
+                .form-horizontal
+                .form-inline    
+        -->
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Focused</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="focusedInput" type="text" value="Click to focus...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="disabledInput" class="col-sm-2 control-label">Disabled</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+                </div>
+            </div>
+            <fieldset disabled>
+                <div class="form-group">
+                    <label for="disabledTextInput" class="col-sm-2 control-label">Disabled input and select list (Fieldset
+                        disabled)
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <select id="disabledSelect" class="form-control">
+                            <option>Disabled select</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-2 control-label" for="inputSuccess">Input with success and glyphicon</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputSuccess">
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="form-group has-warning has-feedback">
+                <label class="col-sm-2 control-label" for="inputWarning">Input with warning and glyphicon</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputWarning">
+                    <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="form-group has-error has-feedback">
+                <label class="col-sm-2 control-label" for="inputError">Input with error and glyphicon</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputError">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="page-header"></div>
+
+
+    <!--
+        .input-lg
+        .input-sm
+        .col-lo-*
+        .col-sm-*
+    -->
+    <div class="container">
+        <h2>Input Sizing</h2>
+        <p>The form below shows input elements with different heights using .input-lg and .input-sm:</p>
+        <form>
+            <div class="form-group">
+                <label for="inputdefault">Default input</label>
+                <input class="form-control" id="inputdefault" type="text">
+            </div>
+            <div class="form-group">
+                <label for="inputlg">input-lg</label>
+                <input class="form-control input-lg" id="inputlg" type="text">
+            </div>
+            <div class="form-group">
+                <label for="inputsm">input-sm</label>
+                <input class="form-control input-sm" id="inputsm" type="text">
+            </div>
+            <div class="form-group">
+                <label for="sel1">Default select list</label>
+                <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sel2">input-lg</label>
+                <select class="form-control input-lg" id="sel2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sel3">input-sm</label>
+                <select class="form-control input-sm" id="sel3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+        </form>
+        <br><br>
+
+
+        <!--
+            .form-group-lg
+            .form-group-sm
+        -->
+        <h2>Input Sizing</h2>
+        <p>You can quickly size labels and form controls within a Horizontal form by adding .form-group-lg or .form-group-sm
+            to the div class="form-group" element:</p>
+        <form class="form-horizontal">
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label" for="lg">form-group-lg</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" id="lg">
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="sm">form-group-sm</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" id="sm">
+                </div>
+            </div>
+
+        </form>
+        <br><br>
+
+
+        <!--
+            .input-group-lg
+            .input-group-sm
+        -->
+        <h1>Input Group Size</h1>
+        <p>The .input-group class is a container to enhance an input by adding an icon, text or a button in front or behind
+            it as a "help text".</p>
+        <p>Use the .input-group-lg if you want a large input group:</p>
+        <form>
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <br>
+
+        <p>Use the .input-group-sm if you want a small input group:</p>
+        <form>
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="page-header"></div>
+
+    <div class="container">
+        <h2>Help text</h2>
+        <p>Use the .help-block class to add a block level help text in forms:</p>
+        <form>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                <!--
+                    .help block
+                -->
+                <span class="help-block">This is some help text that breaks onto a new line and may extend more than one
+                    line.</span>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <br><br><br><br>
+    </div>
+
+
+</body>
+
+</html>

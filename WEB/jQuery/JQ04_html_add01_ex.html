@@ -1,0 +1,41 @@
+<!--
+    input  button  list(ul)
+
+    값을 입력한 뒤, 버튼을 누르면, ul list 추가 되게 만들기
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("ul").append("<li>" + $("#test").val() + "</li>");
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+
+    <h3>Example</h3>
+    <p>
+        <input type="text" id="test">
+        <button id="btn1">&plus;</button>
+    </p>
+
+    <ul>
+        <li>List item 1</li>
+    </ul>
+
+
+
+
+</body>
+
+</html>

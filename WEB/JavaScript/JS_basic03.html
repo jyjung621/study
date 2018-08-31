@@ -1,0 +1,52 @@
+<!--
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+    <!--
+        Substr()
+    -->
+    <input type="text" id="input01">
+    <br>
+    <input type="number" id="input02">
+    <br>
+    <input type="number" id="input03">
+    <br>
+    <button onclick="substr();">substr</button>
+    <p id="result01">result</p>
+    <hr>
+
+    <!--
+        Replace()
+    -->
+    <input type="text" name="" id="input04">
+    <br>
+    <button onclick="replace();">replace</button>
+    <p id="result02"></p>
+
+
+    <script>
+        function substr() {
+            var text = document.getElementById("input01").value;
+            var pos1 = document.getElementById("input02").value;
+            var pos2 = document.getElementById("input03").value;
+            document.getElementById("result01").innerHTML =  text.slice(pos1, pos2);
+
+        }
+
+        function replace() {
+            var text = document.getElementById("input04").value;
+            var sp_num = text.search(/\s/);
+            var tog_text = text.slice(0,sp_num);
+            var fix_text = text.slice(sp_num+1, text.length);
+            var res = text.replace(tog_text, fix_text);
+            document.getElementById("result02").innerHTML = res;
+        }
+    </script>
+    
+    
+</body>
+</html>

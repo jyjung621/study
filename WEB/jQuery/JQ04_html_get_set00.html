@@ -1,0 +1,167 @@
+<!--
+    jQuery DOM Manipulation
+
+
+    Get Content
+        (인자를 주지 않으면 값을 읽어옴)
+        text () - 선택한 요소의 텍스트 내용을 설정하거나 반환합니다.
+        html () - 선택한 요소의 내용을 설정하거나 반환합니다 (HTML 태그 포함).
+        val () - 양식 필드의 값을 설정하거나 반환합니다.
+
+    Get Attributes
+        attr() - 속성 값을 가져 오는 데 사용됩니다.
+
+    ----------------------------------------------------------------------
+
+    Set Content
+        (값을 넣어주면 해당 값으로 변경)
+        text () - 선택한 요소의 텍스트 내용을 설정하거나 반환합니다.
+        html () - 선택된 요소의 내용을 설정하거나 반환합니다 (HTML 마크 업 포함).
+        val () - 양식 필드의 값을 설정하거나 반환합니다.
+
+    Callback function 사용법
+        - text
+            .text(function (number, string) {
+                        return String;
+            };)
+        - html
+
+        - val
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // Get content (text & html & value)
+        $(document).ready(function () {
+            $("#ex01 #btn1").click(function () {
+                // .text() : text 문자만 가져옴
+                alert("Text: " + $("#ex01 #test").text());
+            });
+            $("#ex01 #btn2").click(function () {
+                // .html() : html 코드를 가져옴
+                alert("HTML: " + $("#ex01 #test").html());
+            });
+            $("#ex02 button").click(function () {
+                // .val() : 값을 가져옴
+                alert("Value : " + $("#ex02 #test").val());
+            });
+            // Get attributes (attr)
+            $("#ex03 button").click(function () {
+                // .attr() : 값을 가져옴
+                alert($("#ex03 #w3s").attr("href"));
+            });
+        });
+
+        // Set content (text & html & value)
+        $(document).ready(function () {
+            $("#ex04 #btn1").click(function () {
+                $("#ex04 #test1").text("Hello world!");
+            });
+            $("#ex04 #btn2").click(function () {
+                $("#ex04 #test2").html("<b>Hello world!</b>");
+            });
+            $("#ex04 #btn3").click(function () {
+                $("#ex04 #test3").val("Dolly Duck");
+            });
+            $("#ex04 #btn4").click(function () {
+                // 인자 (Attribute, Attribute Value)
+                $("#ex04 #w3s").attr("href", "https://www.w3schools.com/jquery/");
+            });
+            $("#ex04 #btn5").click(function () {
+                // 타이틀까지 바꾸는 방법
+                $("#ex04 #w3s").attr({
+                    "href": "https://www.w3schools.com/jquery/",
+                    "title": "W3Schools jQuery Tutorial"
+                });
+            });
+        });
+
+        // Callback function
+        $(document).ready(function () {
+            $("#ex05 #btn1").click(function () {
+                // 인자 (Number, String)   리턴 String
+                $("#ex05 #test1").text(function (i, origText) {
+                    return "Old text: " + origText + "<br>New text: Hello world! (index: " + i + ")";
+                });
+            });
+            $("#ex05 #btn2").click(function () {
+                // 인자 (Number, String)   리턴 String
+                $("#ex05 #test2").html(function (i, origText) {
+                    return "Old html: " + origText + "<br>New html: Hello <b>world!</b> (index: " + i + ")";
+                });
+            });
+            $("#ex05 #btn3").click(function () {
+                // 인자 (Number, String)   리턴 String
+                $("#ex05 #test3").val(function (i, origVal) {
+                    return "Hello wrold!";
+                });
+            });
+            $("#ex05 #btn4").click(function () {
+                $("#ex05 #w3s").attr("href", function (i, origValue) {
+                    return origValue + "/jquery/";
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div id="ex01">
+        <h3>Ex01 get text & html</h3>
+        <p id="test">This is some <b>bold</b> text in a paragraph.</p>
+        <button id="btn1">Show Text</button>
+        <button id="btn2">Show HTML</button>
+    </div>
+    <hr>
+    <div id="ex02">
+        <h3>Ex02 get value</h3>
+        <p>Name : <input type="text" id="test" value="Mickey Mouse"></p>
+        <button id="btn03">Show Value</button>
+    </div>
+    <hr>
+    <div id="ex03">
+        <h3>Ex03 get attributes</h3>
+        <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+        <button id="btn04">Show href Value</button>
+    </div>
+    <hr>
+
+    <div id="ex04">
+        <h3>Ex04 set text & html & value</h3>
+        <p id="test1">This is a paragraph.</p>
+        <p id="test2">This is another paragraph.</p>
+
+        <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+        <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+        <button id="btn1">Set Text</button>
+        <button id="btn2">Set HTML</button>
+        <button id="btn3">Set Value</button>
+        <button id="btn4">Change href Value</button>
+        <button id="btn5">Change href Value & Title</button>
+    </div>
+    <hr>
+    <div id="ex05">
+        <h3>Ex05 callback function for text & html & value</h3>
+        <p id="test1">This is a <b>bold</b> paragraph.</p>
+        <p id="test2">This is another <b>bold</b> paragraph.</p>
+        <p><input type="text" id="test3" value="test value"></p>
+        <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+        <button id="btn1">Show Old/New Text</button>
+        <button id="btn2">Show Old/New HTML</button>
+        <button id="btn3">Show Old/New Value</button>
+        <button id="btn4">Change href Value</button>
+    </div>
+    <hr>
+
+</body>
+
+</html>

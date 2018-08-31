@@ -1,0 +1,51 @@
+<!--
+    JavaScript Where To
+-->
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <input type="text" id="input01">
+    <br>
+    <input type="text" id="input02">
+    <br>
+    <button onclick="sub();">&minus;</button>
+    <button onclick="multi();">&times;</button>
+    <button onclick="divide();">&sol;</button>
+    <button onclick="reminder();">&percnt;</button>
+    <p id="result"></p>
+    
+
+    <script>
+        function sub() {
+            var x = document.getElementById("input01").value;
+            var y = document.getElementById("input02").value;
+            var res = x - y;
+            document.getElementById("result").innerHTML = 
+                x + " - " + y + " = " + res;
+        }
+        function multi() {
+            var x = document.getElementById("input01").value;
+            var y = document.getElementById("input02").value;
+            var res = x * y;
+            document.getElementById("result").innerHTML = 
+                x + " * " + y + " = " + res;
+        }
+        function divide() {
+            var x = document.getElementById("input01").value;
+            var y = document.getElementById("input02").value;
+            var res = x / y;
+            document.getElementById("result").innerHTML = 
+                x + " / " + y + " = " + res;
+        }
+        function reminder() {
+            var x = document.getElementById("input01").value;
+            var y = document.getElementById("input02").value;
+            var res = x % y;
+            document.getElementById("result").innerHTML = 
+                x + " % " + y + " = " + res;
+        }
+    </script>
+</body>
+</html>

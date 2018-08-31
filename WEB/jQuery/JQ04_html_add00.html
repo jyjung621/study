@@ -1,0 +1,126 @@
+<!--
+   
+    Add New HTML Content with jQuery
+        append () - 선택한 요소의 끝에 내용을 삽입합니다.
+        prepend () - 선택한 요소의 시작 부분에 내용을 삽입합니다.
+        after () - 선택한 요소 뒤에 내용 삽입
+        before () - 선택한 요소 앞에 내용 삽입
+
+    // 새로운 element를 추가하는 여러가지 방법
+    function appendText() {
+        var txt1 = "<p>Text.</p>";              // Create text with HTML
+        var txt2 = $("<p></p>").text("Text.");  // Create text with jQuery
+        var txt3 = document.createElement("p");
+        txt3.innerHTML = "Text.";               // Create text with DOM
+        $("body").append(txt1, txt2, txt3);     // Append new elements
+    }
+
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // .append()  p & ul element
+            $("#ex01 #btn1").click(function () {
+                $("#ex01 p").append(" <b>Appended text</b>.");
+            });
+            $("#ex01 #btn2").click(function () {
+                $("#ex01 ol").append("<li>Appended item</li>");
+            });
+
+            // .prepend()  p & ul element
+            $("#ex02 #btn1").click(function () {
+                $("#ex02 p").prepend("<b>Prepended text</b>. ");
+            });
+            $("#ex02 #btn2").click(function () {
+                $("#ex02 ol").prepend("<li>Prepended item</li>");
+            });
+        });
+
+        // 새로운 element를 추가하는 여러가지 방법
+        function appendText() {
+            var txt1 = "<p>Text.</p>";              // Create text with HTML
+            var txt2 = $("<p></p>").text("Text.");  // Create text with jQuery
+            var txt3 = document.createElement("p");
+            txt3.innerHTML = "Text.";               // Create text with DOM
+            $("body #ex03").append(txt1, txt2, txt3);     // Append new elements
+        }
+
+
+        // after() & before()
+        $(document).ready(function () {
+            $("#ex04 #btn1").click(function () {
+                $("#ex04 img").before("<b>Before</b>");
+            });
+
+            $("#ex04 #btn2").click(function () {
+                $("#ex04 img").after("<i>After</i>");
+            });
+        });
+
+        // 새로운 element를 추가하는 여러가지 방법
+        function afterText() {
+            var txt1 = "<b>I </b>";                   // Create element with HTML
+            var txt2 = $("<i></i>").text("love ");    // Create with jQuery
+            var txt3 = document.createElement("b");   // Create with DOM
+            txt3.innerHTML = "jQuery!";
+            $("img").after(txt1, txt2, txt3);      // Insert new elements after img
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="ex01">
+        <h3>Ex01 append()</h3>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ol>
+
+        <button id="btn1">Append text</button>
+        <button id="btn2">Append list items</button>
+    </div>
+    <hr>
+    <div id="ex02">
+        <h3>Ex02 prepend()</h3>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ol>
+
+        <button id="btn1">Prepend text</button>
+        <button id="btn2">Prepend list item</button>
+    </div>
+    <hr>
+    <div id="ex03">
+        <h3>Ex03 새로운 element를 추가하는 여러가지 방법</h3>
+        <p>This is a paragraph.</p>
+        <button onclick="appendText()">Append text</button>
+    </div>
+    <hr>
+
+    <div id="ex04">
+        <img src="https://www.w3schools.com/images/w3jquery.gif" alt="jQuery" width="100" height="140"><br><br>
+
+        <button id="btn1">Insert before</button>
+        <button id="btn2">Insert after</button>
+    </div>
+    <hr>
+</body>
+
+</html>

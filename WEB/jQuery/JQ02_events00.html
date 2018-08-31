@@ -1,0 +1,135 @@
+<!--
+    jQuery Event Methods
+
+    Events Example
+        - moving a mouse over an element
+        - selecting a radio button
+        - clicking on an element
+
+    Mouse Events    //  Keyboard Events //   Form Events    //  Document/Window Events
+    click	            keypress	         submit	            load
+    dblclick	        keydown	             change	            resize
+    mouseenter	        keyup	             focus	            scroll
+    mouseleave	 	                         blur	            unload
+
+    jQuery Sntax for Event Methods
+        $("p").click(function(){    :  p element를 click 했을 때, action 실행
+            // action
+        })  
+-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // p element 를 click 했을 경우 
+            $("#ex01").click(function () {
+                // 클릭한 p element를 숨김
+                $(this).hide();
+            });
+
+            // 더블 클릭 했을 경우
+            $("#ex02").dblclick(function () {
+                $(this).hide();
+            });
+
+            // 마우스를 올렸을 때
+            $("#ex03").mouseenter(function () {
+                alert("You entered ex03 paragraph.")
+            });
+
+            // 마우스가 벗어났을 때
+            $("#ex04").mouseleave(function () {
+                alert("Bye! You now leave ex04 paragraph.")
+            });
+
+            // 마우스의 왼쪽, 가운데, 오른쪽 버튼을 누를 경우 발생
+            $("#ex05").mousedown(function () {
+                alert("Mouse down over ex05 paragraph.")
+            });
+
+            // 마우스의 왼쪽, 가운데, 오른쪽 버튼을 놓을 경우 발생
+            $("#ex06").mouseup(function () {
+                alert("Mouse up over ex06 paragraph!");
+            });
+
+            // hober() -> mouseenter + mouseleave
+            $("#ex07").hover(function () {
+                alert("You entered ex07!");
+            },
+                function () {
+                    alert("Bye! You now leave ex07!");
+                });
+
+            // focus & blur
+            $("input").focus(function () {
+                $(this).css("background-color", "#cccccc");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "#ffffff");
+            });
+
+            // on() methods
+            // 선택한 요소에 대해 하나 이상의 이벤트 처리를 연결
+            $("#ex09").on("click", function () {    // click 이벤트 연결
+                $(this).hide();
+            });
+
+            $("#ex10").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "lightgray");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "lightblue");
+                },
+                click: function () {
+                    $(this).css("background-color", "yellow");
+                }
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+
+    <h3>Ex01 click()</h3>
+    <p id="ex01">If you click on me, I will disappear.</p>
+    <hr>
+    <h3>Ex02 dblclick()</h3>
+    <p id="ex02">If you double-click on me, I will disappear.</p>
+    <hr>
+    <h3>Ex03 mouseenter()</h3>
+    <p id="ex03">Enter this paragraph.</p>
+    <hr>
+    <h3>Ex04 mouseleave()</h3>
+    <p id="ex04">This is a paragraph</p>
+    <hr>
+    <h3>Ex05 mousedown()</h3>
+    <p id="ex05">This is a paragraph</p>
+    <hr>
+    <h3>Ex06 mouseup()</h3>
+    <p id="ex06">This is a paragraph</p>
+    <hr>
+    <h3>Ex07 hover()</h3>
+    <p id="ex07">This is a paragraph</p>
+    <hr>
+    <h3>Ex08 focus() & blur()</h3>
+    <p id="ex08"></p>
+    NAME : <input type="text" name="fullname">
+    <br> E-mail : <input type="text" name="email">
+    <hr>
+    <h3>Ex09 on()</h3>
+    <p id="ex09">This is a paragraph</p>
+    <hr>
+    <h3>Ex10 on()</h3>
+    <p id="ex10">This is a paragraph</p>
+    <hr>
+</body>
+
+</html>

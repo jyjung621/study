@@ -1,0 +1,26 @@
+<!--
+    JavaScript Where To
+-->
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <input type="text" id="input01">
+    <br>
+    <input type="text" id="input02">
+    <br>
+
+    <button onclick="calc();">Click</button>
+
+    <script>
+        function calc() {
+            var x = document.getElementById("input01").value;
+            var y = document.getElementById("input02").value;
+            
+            var res = x + y;
+            console.log(res);
+        }
+    </script>
+</body>
+</html>

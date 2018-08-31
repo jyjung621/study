@@ -1,0 +1,81 @@
+<!--
+    input  button  list(ul)
+
+    값을 입력한 뒤, 버튼을 누르면, ul list 추가 되게 만든 후,
+
+    list element 클릭하면, 제거되게 만들기
+    (2가지 방법 있음)
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#list1").append("<li>" + $("#test").val() + "</li>");
+                $("#list1 > li").on("click", function () {
+                    $(this).remove();
+                });
+            });
+        });
+
+        // 새로 추가한 list 만 제거 가능
+        // $(document).ready(function () {
+        //     $("#btn1").click(function () {
+        //         var text = $("#test").val();
+        //         var newElem = $("<li />").text(text);
+        //         newElem.click(function () {
+        //             $(this).remove();
+        //         })
+        //         $("#list1").append(newElem);
+        //     });
+        // });
+
+
+
+        // 동적 할당 된 element의 경우 추가하면서, .on()으로 이벤트 등록해줄 것
+        // $(document).ready(function () {
+        //     $("#btn1").click(function () {
+        //         var text = $("#input1").val();
+        //         $("#list1").append("<li>" + text + "</li>");
+        //         $("#list1 > li").on("click", function () {
+        //             $(this).remove();
+        //         });
+        //     });
+        // });
+
+        // 동적 element 할당 하면서, 바로 onclick 이벤트를 주어 삭제 할수 있도록 하는 방법
+        // $(document).ready(function () {
+        //     $("#btn1").click(function () {
+        //         var text = $("#input1").val();
+        //         $("#list1").append("<li onclick='$(this).remove();'>" + text + "</li>");
+
+        //     });
+        // });
+
+    </script>
+</head>
+
+<body>
+
+
+    <h3>Example</h3>
+    <p>
+        <input type="text" id="test">
+        <button id="btn1">&plus;</button>
+    </p>
+
+    <ul id="list1">
+        <li>List item 1</li>
+    </ul>
+
+
+
+
+</body>
+
+</html>

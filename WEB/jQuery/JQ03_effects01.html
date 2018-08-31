@@ -1,0 +1,177 @@
+<!--
+    jQuery Effects
+        Hide, Show, Toggle, Fade, Slide, Animate, callback, chaining
+
+    Slide
+        slideDown ()
+            $(selector).slideDown(speed,callback);
+        slideUp ()
+            $(selector).slideUp(speed,callback);
+        slideToggle ()
+            $(selector).slideToggle(speed,callback);
+
+    Animations
+        animate()
+            $(selector).animate({params},speed,callback);
+    
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script> 
+        $(document).ready(function () {
+            // slideDowun()
+            $("#flip01").click(function () {
+                $("#panel01").slideDown("slow");
+            });
+
+            // slideUp()
+            $("#flip02").click(function () {
+                $("#panel02").slideUp("slow");
+            });
+
+            // slideToggle()
+            $("#flip03").click(function () {
+                $("#panel03").slideToggle("slow");
+            });
+
+            // animate()
+            $("#ex04 #animate").click(function () {
+                $("#ex04 #div01").animate({ left: '250px' });
+            });
+            $("#ex05 #animate").click(function () {
+                $("#ex05 #div01").animate({
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '160px'
+                });
+            });
+            $("#ex06 #animate").click(function () {
+                $("#ex06 #div01").animate({
+                    left: '250px',
+                    height: '+=150px',
+                    width: '+=150px'
+                });
+            });
+            $("#ex07 #animate").click(function () {
+                $("#ex07 #div01").animate({
+                    height: 'toggle'
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* slideDown style */
+        #panel01,
+        #flip01 {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel01 {
+            padding: 50px;
+            display: none;
+        }
+
+        /* slideUp style */
+        #panel02,
+        #flip02 {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel02 {
+            padding: 50px;
+        }
+
+        /* slideToggle style */
+        #panel03,
+        #flip03 {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel03 {
+            padding: 50px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Ex01 slideDown()</h3>
+    <div id="flip01">Click to slide down panel</div>
+    <div id="panel01">Hello world!</div>
+    <hr>
+
+    <h3>Ex02 slideUp()</h3>
+    <div id="flip02">Click to slide up panel</div>
+    <div id="panel02">Hello world!</div>
+    <hr>
+
+    <h3>Ex03 slideToggle()</h3>
+    <div id="flip03">Click to slide the panel down or up</div>
+    <div id="panel03">Hello world!</div>
+    <hr>
+
+    <div id="ex04">
+        <h3>Ex04 animate()</h3>
+        <button id="animate">Start Animatioon</button>
+        <br><br>
+        <div id="div01" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+        <br>
+    </div>
+    <hr style="margin-top:100px">
+
+    <div id="ex05">
+        <h3>Ex05 Multiple animate</h3>
+        <button id="animate">Start Animatioon</button>
+        <br><br>
+        <div id="div01" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+        <br>
+    </div>
+    <hr style="margin-top:150px">
+
+    <div id="ex06">
+        <h3>Ex06 Relative animate</h3>
+        <button id="animate">Start Animatioon</button>
+        <br><br>
+        <div id="div01" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+        <br>
+    </div>
+    <hr style="margin-top:100px">
+
+    <div id="ex07">
+        <h3>Ex07 Pre-defined values animate</h3>
+        <button id="animate">Start Animatioon</button>
+        <br><br>
+        <div id="div01" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+        <br>
+    </div>
+    <hr style="margin-top:100px">
+
+    <div id="ex07">
+        <h3>Ex07 Pre-defined values animate</h3>
+        <button id="animate01">Start Animatioon</button>
+        <button id="animate02">Start Animatioon</button>
+        <br><br>
+        <div id="div01" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+        <div id="div02" style="background:#98bf21;height:100px;width:100px;position:absolute;">Hello</div>
+        <br>
+    </div>
+    <hr style="margin-top:200px">
+
+</body>
+
+</html>

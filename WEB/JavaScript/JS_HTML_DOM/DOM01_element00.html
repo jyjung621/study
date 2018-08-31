@@ -1,0 +1,94 @@
+<!--
+    Finding HTML elements by id
+    Finding HTML elements by tag name
+    Finding HTML elements by class name
+    Finding HTML elements by CSS selectors
+    Finding HTML elements by HTML object collections
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <!--
+        demo01
+    -->
+    <p id="intro">Hello World!</p>
+
+    <p>This example demonstrates the <b>getElementById</b> method!</p>
+
+    <p id="demo01"></p>
+    <hr>
+
+    <!--
+        demo02 ~ 03
+    -->
+    <div id="main">
+        <p>The DOM is very useful.</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method</p>
+    </div>
+
+    <p id="demo02"></p>
+    <p id="demo03"></p>
+    <hr>
+
+    <!--
+        demo04
+    -->
+    <p>Hello World!</p>
+
+    <p class="intro">The DOM is very useful.</p>
+    <p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+    <p id="demo04"></p>
+    <hr>
+
+    <!--
+        id로 element 찾기
+            document.getElementById("id");
+        
+        innerHTML : element 내용
+    -->
+    <script>
+        var myElement = document.getElementById("intro");
+        document.getElementById("demo01").innerHTML =
+            "The text from the intro paragraph is " + myElement.innerHTML;
+    </script>
+
+    <!--
+        tag name으로 element 찾기
+            document.getElementsByTagName("p");
+
+    -->
+    <script>
+        var x = document.getElementsByTagName("p");
+        document.getElementById("demo02").innerHTML =
+            'The first paragraph (index 0) is: ' + x[0].innerHTML;
+    </script>
+
+    <!--
+       id 내에서 tag name으로 element 찾기 
+            var x = document.getElementById("main");
+            var y = x.getElementsByTagName("p");
+    -->
+    <script>
+        var x = document.getElementById("main");
+        var y = x.getElementsByTagName("p");
+        document.getElementById("demo03").innerHTML =
+            'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
+    </script>
+
+    <!--
+        className으로 element 찾기
+            .getElementsByClassName("className");
+    -->
+    <script>
+        var x = document.getElementsByClassName("intro");
+        document.getElementById("demo04").innerHTML =
+            'The first paragraph (index 0) with class="intro": ' + x[0].innerHTML;
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!--
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <input type="text" name="" id="input1">
+    <br>
+    <input type="text" name="" id="input2">
+    <br>
+    <button onclick="search();">search</button>
+
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var text1 = document.getElementById("input1").value;
+            var text2 = document.getElementById("input2").value;
+            document.getElementById("result").innerHTML = 
+                "result => " + text1.search(text2);
+        }
+    </script>
+</body>
+
+</html>

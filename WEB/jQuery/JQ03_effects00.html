@@ -1,0 +1,124 @@
+<!--
+    jQuery Effects
+        Hide, Show, Toggle, Fade, Slide, Animate, callback, chaining
+
+    Hide & Show
+        $(selector).hide(speed,callback);
+        $(selector).show(speed,callback);
+
+    Toggle
+        $(selector).toggle(speed,callback);
+
+    Fading
+        fadeIn()
+            $(selector).fadeIn(speed,callback);
+        fadeOut()
+            $(selector).fadeOut(speed,callback);
+        fadeToggle()
+            $(selector).fadeToggle(speed,callback);
+        fadeTo()
+            $(selector).fadeTo(speed,opacity,callback);
+            opacity : 효과의 지속시간을 지정
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // hide() & show()
+            $("#hide").click(function () {
+                $("#ex01").hide();
+            });
+            $("#show").click(function () {
+                $("#ex01").show();
+            });
+            $("#hide1").click(function () {
+                $("#ex01").hide(1000);
+            });
+            $("#show1").click(function () {
+                $("#ex01").show(2000);
+            });
+
+            // toggle()
+            $("#toggle").click(function () {
+                $("#ex02 p").toggle();
+            });
+
+            // fadeIn() & fadeOut()
+            $("#fadein").click(function () {
+                $("#ex03 #div01").fadeIn();
+                $("#ex03 #div02").fadeIn("slow");
+                $("#ex03 #div03").fadeIn(3000);
+            });
+            $("#fadeout").click(function () {
+                $("#ex03 #div01").fadeOut();
+                $("#ex03 #div02").fadeOut("slow");
+                $("#ex03 #div03").fadeOut(2000);
+            });
+
+            // fadeToggle()
+            $("#fadetoggle").click(function () {
+                $("#ex04 #div01").fadeToggle();
+                $("#ex04 #div02").fadeToggle("slow");
+                $("#ex04 #div03").fadeToggle(2000);
+            });
+
+            // fadeTo()
+            $("#fadeto").click(function () {
+                $("#ex05 #div01").fadeTo("slow", 0.15);
+                $("#ex05 #div02").fadeTo("slow", 0.4);
+                $("#ex05 #div03").fadeTo("slow", 0.7);
+            });
+            s
+        });
+    </script>
+</head>
+
+<body>
+
+    <h3>EX01 hide() & show()</h3>
+    <p id="ex01">If you click on the "Hide" button, I will disappear.</p>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="hide1">Hide_1000</button>
+    <button id="show1">Show_2000</button>
+    <hr>
+    <div id="ex02">
+        <h3>Ex02 toggle()</h3>
+        <button id="toggle">Toggle between hiding and showing the paragraphs</button>
+        <p>This is another small paragraph.</p>
+        <p>This is a paragraph with little content.</p>
+    </div>
+    <hr>
+    <h3>Ex03 fadeIn() & fadeOut()</h3>
+    <button id="fadein">Click to fade in boxes</button>
+    <button id="fadeout">Click to fade out boxes</button>
+    <div id="ex03">
+        <div id="div01" style="width:80px; height:80px; display:none; background-color:red;"></div>
+        <div id="div02" style="width:80px; height:80px; display:none; background-color:green;"></div>
+        <div id="div03" style="width:80px; height:80px; display:none; background-color:blue;"></div>
+    </div>
+    <hr>
+    <h3>Ex04 fadeToggle()</h3>
+    <button id="fadetoggle">Click to fade in/out toggle boxes</button>
+    <div id="ex04">
+        <div id="div01" style="width:80px; height:80px; display:none; background-color:red;"></div>
+        <div id="div02" style="width:80px; height:80px; display:none; background-color:green;"></div>
+        <div id="div03" style="width:80px; height:80px; display:none; background-color:blue;"></div>
+    </div>
+    <hr>
+    <h3>Ex05 fadeTo()</h3>
+    <button id="fadeto">Click to fade in/out toggle boxes</button>
+    <div id="ex05">
+        <div id="div01" style="width:80px; height:80px; display:none; background-color:red;"></div>
+        <div id="div02" style="width:80px; height:80px; display:none; background-color:green;"></div>
+        <div id="div03" style="width:80px; height:80px; display:none; background-color:blue;"></div>
+    </div>
+    <hr>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!--
+    jQuery syntax
+        $(selector).action
+
+    jQuery selector
+        html 요소를 선택하고 조작 가능
+        css셀렉터를 기반으로 동작
+
+    element selector
+        $("p")  :  p element 선택
+    
+    id selector
+        $("#test")  : id로 element 선택
+    
+    class selector
+        $(".test")  : class로 element 선택
+
+    여러가지 selector
+        $("*")	Selects all elements	
+        $(this)	Selects the current HTML element	
+        $("p.intro")	Selects all <p> elements with class="intro"	
+        $("p:first")	Selects the first <p> element	
+        $("ul li:first")	Selects the first <li> element of the first <ul>	
+        $("ul li:first-child")	Selects the first <li> element of every <ul>	
+        $("[href]")	Selects all elements with an href attribute	
+        $("a[target='_blank']")	Selects all <a> elements with a target attribute value equal to "_blank"	
+        $("a[target!='_blank']")	Selects all <a> elements with a target attribute value NOT equal to "_blank"	
+        $(":button")	Selects all <button> elements and <input> elements of type="button"	
+        $("tr:even")	Selects all even <tr> elements	
+        $("tr:odd")	Selects all odd <tr> elements
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--
+        jQuery Library 불러오기
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        /*
+         * $(document).ready
+         *  -> 문서 로드가 완료되기전 코드 실행 방지
+         */
+        /*
+       $(document).ready(function () {
+           // 버튼을 누를경우, 모든 p element 숨김
+           $("button").click(function () {
+               $("p").hide();
+           });
+       });
+       */
+        $(document).ready(function () {
+            $("#ex01 #btn01").click(function () {
+                $("#ex01 p").hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btn02").click(function () {
+                $("#test").hide();
+            });
+        });
+
+        $(document).ready(function () {
+            $(".ex03 .btn03").click(function () {
+                $(".test").hide();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="ex01" >
+        <h2>This is a heading</h2>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+        <!--
+        <button>Click me to hide paragraphs</button>
+        -->
+        <button id="btn01">Click me to hide this div paragraphs</button>
+    </div>
+    <hr>
+
+    <div id="ex02">
+        <h2>This is a heading</h2>
+        <p>This is a paragraph.</p>
+        <p id="test">This is another paragraph.</p>
+        <button id="btn02">Click me</button>
+    </div>
+    <hr>
+
+    <div class="ex03" style="text-align:center">
+        <h2>This is a heading</h2>
+        <p>This is a paragraph.</p>
+        <p class="test">This is another paragraph.</p>
+        <button class="btn03">Click me</button>
+    </div>
+</body>
+
+</html>
