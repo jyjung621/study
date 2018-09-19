@@ -10,3 +10,13 @@
  * id=HTML&page=12 -> query string (시작은 ?로 표시)
  * 
  */
+
+/*
+ * Synchronous VS Asynchronous
+ * 
+ *  - nodejs는 비동기식 처리에 아주 유용함
+ *  - 비동기식은 효율적이나 코드처리에 까다로움
+ * 
+ * 
+ */
+
