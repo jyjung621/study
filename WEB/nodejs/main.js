@@ -8,6 +8,9 @@ var path = require('path');
 // 모듈화  --> 리펙토링 진행
 var template = require('./lib/template.js');
 
+// 출력에 대한 보안대책 (sanitize-html)
+var sanitizeHtml = require('sanitize-html');
+
 
 
 var app = http.createServer(function (request, response) {
@@ -46,11 +49,18 @@ var app = http.createServer(function (request, response) {
         */
         fs.readFile(`./data/${filterdId}`, 'utf8', function (err, description) {
           var title = queryData.id;
+          // sanitize --> 내가 사용하는 변수가 소독되었는지 확인
+          // script와 같은 Tag들이 있으면 작동 시키지 않음
+          var sanitizedTitle = sanitizeHtml(title);
+          // allowedTags:[] => 허용하고자 하는 태그
+          var sanitizedDescription = sanitizeHtml(description, {
+            allowedTags:['h1']
+          });
           var list = template.list(filelist);
-          var html = template.html(title, list, `<h2>${title}</h2><p>${description}</p>`, `<a href='/create'>create</a> 
-              <a href='/update?id=${title}'>update</a> 
+          var html = template.html(title, list, `<h2>${sanitizedTitle}</h2><p>${sanitizedDescription}</p>`, `<a href='/create'>create</a> 
+              <a href='/update?id=${sanitizedTitle}'>update</a> 
               <form action="delete_process" method="post" onsubmit="확실?">
-                <input type="hidden" name="id" value="${title}">
+                <input type="hidden" name="id" value="${sanitizedTitle}">
                 <input type="submit" value="delete">
               </form>`  // 삭제 기능은 link가 아닌 form 형식으로 하는게 좋다!
           );
