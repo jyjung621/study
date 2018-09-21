@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var a;
+	do {	/* 원하는 값을 얻을때 까지 계속 실행 */
+		a = prompt("원하는 구구단은 몇단?");
+	}while(a<2 || a>9 || isNaN(a));
+	
+	for(var i=1; i<=9; i++) {
+		document.write(a + " x " + i + " = " + a*i + "<br>");
+	}
+</script>
+</head>
+<body>
+	
+</body>
+</html>

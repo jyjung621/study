@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        var overImg = new Array();
+        var outImg = new Array();
+        // var prImg = new Array();
+
+        for (var i = 0; i < 4; i++) {
+            overImg[i] = "../images/" + i + "over.jpg";
+            outImg[i] = "../images/" + i + "out.jpg";
+            // prImg[i] = "../images/" + i + "pr.jpg";
+        }
+
+        function ov(num) {
+            document.images[num].src = overImg[num];
+        }
+
+        function op(num) {
+            alert("onmousedown");
+            document.images[num].src = '0pr.jpg';
+        }
+
+        function ot(num) {
+            document.images[num].src = outImg[num];
+        }
+        function init() {
+            window.resizeTo(200, 300);
+        }
+
+    </script>
+</head>
+
+<body onload="init()">
+        <p><img src="../images/0out.jpg" onmouseover="ov(0)" onmouseout="ot(0)" onclick="op(0)"></p>
+        <p><img src="../images/1out.jpg" onmouseover="ov(1)" onmouseout="ot(1)"></p>
+        <p><img src="../images/2out.jpg" onmouseover="ov(2)" onmouseout="ot(2)"></p>
+        <p><img src="../images/3out.jpg" onmouseover="ov(3)" onmouseout="ot(3)"></p>
+
+</body>
+
+</html>

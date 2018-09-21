@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function person(name,age) {
+			this.name = name;
+			this.age = age;
+		}
+		var chul = new person("철수", 25);
+		for(var key in chul) {
+			document.write(key + " : " + chul[key] + "<br>");
+		}
+	</script>
+</body>
+</html>

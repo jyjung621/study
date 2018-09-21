@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function chk1() {
+		opener.document.getElementById("openerInput").value = "kkk";
+		//opener.close();
+	}
+	function chk2() {
+		window.close();
+	}
+</script>
+</head>
+<body>
+	<p><img alt="" src="../images/java.jpg"></p>
+	<button onclick="chk1()">부모창 닫기_값 넣기</button>
+	<button onclick="chk2()">내창 닫기</button>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>switch문</title>
+<script type="text/javascript">
+	var a = parseInt(prompt("1~7사이 숫자를 입력하세요",""));
+	if(a<1 || a>7)      document.write("잘못 입력하셨습니다");
+	else if(isNaN(a)) 	document.write("숫자가 아닙니다");
+	else {
+	 	switch(a){
+		case 1  : document.bgColor = "red"; 
+		          document.write("1 입력하셨습니다");break;
+		case 2  : document.bgColor = "orange";break;
+		case 3  : document.bgColor = "yellow";break;
+		case 4  : document.bgColor = "green";break;
+		case 5  : document.bgColor = "blue";break;
+		case 6  : document.bgColor = "navy";break;
+		default : document.bgColor = "violet";break;
+		} 
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

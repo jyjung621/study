@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function chk(num) {
+            alert('chk call');
+            document.images[0].src = '../images/' + num + ".gif";
+        }
+
+        function init() {
+            window.resizeTo(300, 200);
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <center>
+        <p><img src="../images/3.gif" alt=""></p>
+        <button onclick="chk(1)">목마</button>
+        <button onclick="chk(2)">우체통</button>
+        <button onclick="chk(3)">불자동차</button>
+    </center>
+
+</body>
+
+</html>

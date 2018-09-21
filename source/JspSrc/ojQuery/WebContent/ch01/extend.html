@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var obj = {name:'홍길동' };
+		$.extend(obj,{
+			gender : 'male',
+			part   : 'Base Guitar'
+		});
+		var output = "";
+		$.each(obj,function(key, item){
+			output += key + " : " + item + "\n";
+		});
+		alert(output);
+	});
+</script></head><body>
+
+</body>
+</html>

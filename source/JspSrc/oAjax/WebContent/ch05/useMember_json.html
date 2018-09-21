@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/httpRequest.js"></script>
+<script type="text/javascript" src="./Member_json.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var mem = new Member('kk', '받니', '9005281000000');
+		log('현재 이름 나이');
+		log(mem.toString() + " 나이 : " + mem.getAge());
+		mem.setValue('aa', '대낄', '9107201000000');
+		log('변경후');
+		log(mem.toString() + " 나이 : " + mem.getAge());
+		
+	}
+</script>
+</head>
+<body>
+	<div id="console"></div>
+</body>
+</html>

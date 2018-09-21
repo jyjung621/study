@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function chk() {
+            var mStr = "좋아하는 영화는?\n";
+            var sStr = "좋아하는 노래는?\n";
+            for (var i = 0; i < frm.movie.length; i++) {
+                if (frm.movie[i].checked) {
+                    mStr += frm.movie[i].value + "\n";
+                    break;
+                }
+            }
+            for (var j = 0; j < frm.song.length; j++) {
+                if (frm.song[i].checked) {
+                    mStr += frm.song[i].value + "\n";
+                    break;
+                }
+            }
+            alert(mStr + sStr);
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" name="frm">
+        <h2>다음에서 선택하세요</h2>
+        <p>1.가장 좋아하는 영화 한 개만을 선택하세요.</p>
+        <input type="radio" name="movie" id="m1" value="원더우먼">
+        <label for="m1" checked="checked">원더우먼</label>
+        <input type="radio" name="movie" id="m2" value="악녀">
+        <label for="m2" checked="checked">악녀</label>
+        <hr>
+        <p>2.가장 좋아하는 노래 한 개만을 선택하세요.</p>
+        <input type="radio" name="song" id="s1" value="세월이 가면">
+        <label for="s1" checked="checked">세월이 가면</label>
+        <input type="radio" name="song" id="s2" value="미스터미스터리">
+        <label for="s2" checked="checked">미스터미스터리</label>
+        <hr>
+        <p><input type="button" value="확인" onclick="chk()"></p>
+    </form>
+
+</body>
+
+</html>

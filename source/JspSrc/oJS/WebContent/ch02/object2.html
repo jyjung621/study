@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var man = {
+			name : "장동건",
+			age : 23,
+			addr : "강남"
+		};
+		man.phone = "010-111-1111"; // 멤버 변수 추가
+
+		for (var key in man) {
+			document.write(key + " : " + man[key] + "<br>");
+		}
+		delete(man.addr);
+		for (var key in man) {
+			document.write(key + " : " + man[key] + "<br>");
+		}
+	</script>
+</body>
+</html>

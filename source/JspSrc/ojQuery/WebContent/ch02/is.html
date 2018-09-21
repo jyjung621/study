@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('h1,h2').each(function() {
+			if ($(this).is('.select')) {
+				$(this).css('background','orange');
+			}
+		});
+	});
+</script></head>
+<body>
+	<h1>대박</h1><h2 class="select">비온다</h2>
+	<h1>파전</h1><h2>막걸리</h2>
+	<h1 class="select">소주</h1><h2>동그랑땡</h2>
+</body>
+</html>

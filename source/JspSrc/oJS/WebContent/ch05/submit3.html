@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function chk() {
+            if(!frm.id.value) {
+                alert("이름??");
+                frm.id.focus;
+                return false;
+            }
+            if(!frm.pass.value) {
+                alert("이름??");
+                frm.pass.focus;
+                return false;
+            }
+            //frm.action = "http://www.naver.com";
+            frm.onsubmit();
+        }
+    </script>
+</head>
+<body>
+    <h2>로그인</h2>
+    <!-- onsubmit="return chk()" 이게 있어야 위 문장 check -->
+    <form action="http://www.google.com" name="frm">
+        <table border="1" bgcolor="yellow">
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="id" id=""></td>
+            </tr>
+            <tr>
+                <td>암호</td>
+                <td><input type="password" name="pass" id=""></td>
+            </tr>
+            <tr>
+                <!-- onclick -->
+                <td><input type="submit" value="확인" onclick="return chk()"></td>
+                <td><input type="reset" value="취소"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

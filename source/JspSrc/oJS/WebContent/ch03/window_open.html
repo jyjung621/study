@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        function chk() {
+            // 2초마다 계속 오픈하라고 할려면 아래와 같이
+            var time = setInterval(function () {
+                window.open("window_close.html", "", "width=360 height=490");
+            }, 2000);
+            setTimeout(function () {
+                clearInterval(time);
+            }, 11000);
+        }
+    </script>
+</head>
+
+<body onload="chk()">
+    <h1>그림에 마우스를 올려놓으면, 큰그림이 팝업창으로 나옵니다.</h1>
+    <img alt="C" src="../images/small.jpg" onmouseover="chk()">
+</body>
+
+</html>
