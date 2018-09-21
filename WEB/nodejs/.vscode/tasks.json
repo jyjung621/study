@@ -1,17 +1,9 @@
 {
-<<<<<<< HEAD
-
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Chrome",
-=======
     
     "version": "2.0.0",
     "tasks": [
         {
             "label": "Chrome_build",
->>>>>>> 095b695e4a75479f760b2294d86f14ced1920e99
             "type": "process",
             "command": "chrome.exe",
             "windows": {
@@ -24,13 +16,8 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-<<<<<<< HEAD
-            }
-
-=======
             },
             
->>>>>>> 095b695e4a75479f760b2294d86f14ced1920e99
         }
     ]
 }
