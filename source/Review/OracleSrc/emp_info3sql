@@ -1,0 +1,20 @@
+create or replace PROCEDURE emp_info3
+(
+    p_empno IN emp.empno%TYPE,
+    p_sal OUT emp.sal%TYPE
+)
+IS
+-- %TYPE 데이터형 변수 선언 
+    v_empno emp.empno%TYPE;
+BEGIN
+    dbms_output.ENABLE;
+    -- %type 데이터형 변수 사용
+    SELECT empno,sal
+    INTO v_empno,p_sal
+    FROM emp
+    WHERE empno = p_empno;
+
+    -- 결과갑 출력
+    dbms_output.put_line('사원번호 : ' || v_empno || chr(10) || chr(13) || '줄바뀜');
+    dbms_output.put_line('사원급여 : ' || p_sal);    
+END;

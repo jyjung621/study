@@ -23,3 +23,5 @@ END;
 -- 실행방법
 SET SERVEROUTPUT ON;
 execute forcursor_test;
+
+
