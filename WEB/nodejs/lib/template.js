@@ -9,7 +9,7 @@ module.exports = {
         <!doctype html>
         <html>
         <head>
-          <title>WEB1 - ${title}</title>
+          <title>WEB - ${title}</title>
           <meta charset="utf-8">
         </head>
         <body>
@@ -30,6 +30,25 @@ module.exports = {
         list += '</ul>';
 
         return list;
+    },
+
+    authorSelect:function(authors, author_id) {
+        var tag = "";
+        var selected = "";
+        for(var i=0; i<authors.length; i++) {
+            if(author_id === authors[i].id) {
+                selected = " selected";
+            } else {
+                selected = "";
+            }
+            tag += `<option value="${authors[i].id}" ${selected}>${authors[i].name}</option>`;
+        }
+
+        return `
+            <select name="author">
+                ${tag}
+            </select>
+        `
     }
 }
 
