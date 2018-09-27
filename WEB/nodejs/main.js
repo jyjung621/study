@@ -4,12 +4,23 @@ var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
-
 // 모듈화  --> 리펙토링 진행
 var template = require('./lib/template.js');
-
 // 출력에 대한 보안대책 (sanitize-html)
 var sanitizeHtml = require('sanitize-html');
+// MySql reference
+var mysql = require('mysql');
+
+// mysql connection info
+var db = mysql.createConnection({
+  host      : 'localhost',
+  user      : 'ruin',
+  password  : '1234',
+  database  : 'opentutorials'
+});
+
+// Real connection
+db.connect();
 
 
 
@@ -25,14 +36,26 @@ var app = http.createServer(function (request, response) {
         .readdir() => file목록을 읽어옴
         자동으로 list 생성할수 있게 할수 있음
       */
-      fs.readdir('./data', function (error, filelist) {
+      /* fs.readdir('./data', function (error, filelist) {
         var title = 'Welcome';
         var description = 'Hello, Node.js';
         // list를 file목록에서 읽어와서 자동으로 생성되게 함
         var list = template.list(filelist);
+        console.log('filelist -> ' + filelist );
+        console.log('list -> ' + list );
         // html code 생성
         var html = template.html(title, list, `<h2>${title}</h2><p>${description}</p>`, `<a href='/create'>create</a>`
         );
+
+        response.writeHead(200);
+        response.end(html);
+      }) */
+
+      db.query(`select * from topic`, function(error, topics) {
+        var title = 'Welcome';
+        var description = 'Hello, Node.js';
+        var list = template.list(topics);
+        var html = template.html(title, list, `<h2>${title}</h2><p>${description}</p>`, `<a href='/create'>create</a>`);
 
         response.writeHead(200);
         response.end(html);
@@ -40,34 +63,54 @@ var app = http.createServer(function (request, response) {
 
       // id 값 선택한 page
     } else {
-      fs.readdir('./data', function (error, filelist) {
-        // 경로를 숨기기 위한 방안
-        var filterdId = path.parse(queryData.id).base;
-        /*
-            파일을 읽어서 본문 전달
-            .readFile(filePath, encode, function)로 파일을 읽어와서 ${description} 을 통하여 전달
-        */
-        fs.readFile(`./data/${filterdId}`, 'utf8', function (err, description) {
-          var title = queryData.id;
-          // sanitize --> 내가 사용하는 변수가 소독되었는지 확인
-          // script와 같은 Tag들이 있으면 작동 시키지 않음
-          var sanitizedTitle = sanitizeHtml(title);
-          // allowedTags:[] => 허용하고자 하는 태그
-          var sanitizedDescription = sanitizeHtml(description, {
-            allowedTags:['h1']
-          });
-          var list = template.list(filelist);
-          var html = template.html(title, list, `<h2>${sanitizedTitle}</h2><p>${sanitizedDescription}</p>`, `<a href='/create'>create</a> 
-              <a href='/update?id=${sanitizedTitle}'>update</a> 
-              <form action="delete_process" method="post" onsubmit="확실?">
-                <input type="hidden" name="id" value="${sanitizedTitle}">
-                <input type="submit" value="delete">
-              </form>`  // 삭제 기능은 link가 아닌 form 형식으로 하는게 좋다!
-          );
+    //   fs.readdir('./data', function (error, filelist) {
+    //     // 경로를 숨기기 위한 방안
+    //     var filterdId = path.parse(queryData.id).base;
+    //     /*
+    //         파일을 읽어서 본문 전달
+    //         .readFile(filePath, encode, function)로 파일을 읽어와서 ${description} 을 통하여 전달
+    //     */
+    //     fs.readFile(`./data/${filterdId}`, 'utf8', function (err, description) {
+    //       var title = queryData.id;
+    //       // sanitize --> 내가 사용하는 변수가 소독되었는지 확인
+    //       // script와 같은 Tag들이 있으면 작동 시키지 않음
+    //       var sanitizedTitle = sanitizeHtml(title);
+    //       // allowedTags:[] => 허용하고자 하는 태그
+    //       var sanitizedDescription = sanitizeHtml(description, {
+    //         allowedTags:['h1']
+    //       });
+    //       var list = template.list(filelist);
+    //       var html = template.html(title, list, `<h2>${sanitizedTitle}</h2><p>${sanitizedDescription}</p>`, `<a href='/create'>create</a> 
+    //           <a href='/update?id=${sanitizedTitle}'>update</a> 
+    //           <form action="delete_process" method="post" onsubmit="확실?">
+    //             <input type="hidden" name="id" value="${sanitizedTitle}">
+    //             <input type="submit" value="delete">
+    //           </form>`  // 삭제 기능은 link가 아닌 form 형식으로 하는게 좋다!
+    //       );
+    //       response.writeHead(200);
+    //       response.end(html);
+    //     });
+    //   });
+
+      db.query(`select * from topic`, function(error, topics) {
+        if(error) {
+          throw error;
+        }
+        db.query(`select * from topic where id=${queryData.id}`, function(error2, topic) {
+          if(error2) {
+            throw error2;
+          }
+          console.log(topic);
+          var title = topic[0].title;
+          var description = topic[0].description;
+          var list = template.list(topics);
+          var html = template.html(title, list, `<h2>${title}</h2><p>${description}</p>`, `<a href='/create'>create</a>`);
+    
           response.writeHead(200);
           response.end(html);
         });
       });
+
     }
     //  페이지를 못 찾을 경우
   } else if (pathname === '/create') {
