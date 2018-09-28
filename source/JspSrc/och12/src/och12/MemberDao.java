@@ -175,8 +175,142 @@ public class MemberDao {
 				conn.close();
 			}
 		}
-		
+
 		return memb;
 
+	}
+
+	public int update(Member member) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update member2 set passwd=?, name=?, address=?, tel=? where id=?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getPasswd());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getAddress());
+			pstmt.setString(4, member.getTel());
+			pstmt.setString(5, member.getId());
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("select error -> " + e.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		return result;
+	}
+
+	public int confirm(String id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 1;
+		String sql = "SELECT * FROM member2 WHERE id=?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = 1;
+			} else {
+				result = 0;
+			}
+		} catch (Exception e) {
+			System.out.println("confirm error -> " + e.getMessage());
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		return result;
+	}
+
+	/*public int delete(String id, String passwd) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = -1;
+		String selectSql = "SELECT id, passwd FROM member2 WHERE id=?";
+		String deleteSql = "DELETE FROM member2 WHERE id=?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(selectSql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = 0;
+				String dbPasswd = rs.getString(2);
+				if (dbPasswd.equals(passwd)) {
+					pstmt.close();
+					pstmt = conn.prepareStatement(deleteSql);
+					pstmt.setString(1, id);
+					result = pstmt.executeUpdate();
+				}
+			} else {
+				result = -1;
+			}
+		} catch (Exception e) {
+			System.out.println("delete error -> " + e.getMessage());
+		} finally {
+			if (rs != null) {
+				rs.close();
+			}
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+
+		return result;
+	}*/
+	
+	public int delete(String id, String passwd) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = check(id, passwd);
+		if(result != 1) {
+			return result;
+		}
+		String sql = "DELETE FROM member2 WHERE id=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("delete error -> " + e.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+		return result;
 	}
 }

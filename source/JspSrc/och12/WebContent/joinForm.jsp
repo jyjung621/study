@@ -25,6 +25,7 @@ table {
 			frm.id.focus();
 			return false;
 		}
+		/*	팝업창 열기 위한 방법  */
 		window.open("confirmId.jsp?id=" + frm.id.value, "",
 				"width=300 height=300");
 	}
@@ -36,8 +37,8 @@ table {
 		<table border="1">
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="id" required="required"> <input
-					type="button" value="아이디체크" onclick="winop()"></td>
+				<td><input type="text" name="id" required="required"> 
+					<input type="button" value="아이디체크" onclick="winop()"></td>
 			</tr>
 			<tr>
 				<td>암호</td>
