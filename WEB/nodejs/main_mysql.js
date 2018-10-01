@@ -1,26 +1,12 @@
 var http = require('http');
-var fs = require('fs');
 // requre('url') -> url을 사용
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
 // 모듈화  --> 리펙토링 진행
 var template = require('./lib/template.js');
-// 출력에 대한 보안대책 (sanitize-html)
-var sanitizeHtml = require('sanitize-html');
-// MySql reference
-var mysql = require('mysql');
-
-// mysql connection info
-var db = mysql.createConnection({
-  host      : 'localhost',
-  user      : 'ruin',
-  password  : '1234',
-  database  : 'opentutorials'
-});
-
-// Real connection
-db.connect();
+var db = require('./lib/db');
+var topic = require('./lib/topic');
 
 
 
@@ -32,15 +18,7 @@ var app = http.createServer(function (request, response) {
   if (pathname === '/') {
     // home page
     if (queryData.id === undefined) {
-      db.query(`select * from topic`, function(error, topics) {
-        var title = 'Welcome';
-        var description = 'Hello, Node.js';
-        var list = template.list(topics);
-        var html = template.html(title, list, `<h2>${title}</h2><p>${description}</p>`, `<a href='/create'>create</a>`);
-
-        response.writeHead(200);
-        response.end(html);
-      })
+      topic.home;
 
       // id 선택한 page
     } else {
