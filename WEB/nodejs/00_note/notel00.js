@@ -26,3 +26,11 @@
  *  muse.js  &&  mpart.js  참조
  * 
  */
+
+ /*
+ *  var vs const
+ * 
+ *  var => 언제든 재선언 가능
+ *  const => 한번 선언후 재선언 불가능
+ * 
+ */
