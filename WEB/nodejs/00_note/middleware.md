@@ -1,6 +1,7 @@
 
  
- Express Middleware
+ ###Express Middleware
+ ----------
     
   - middleware는 순차적으로 실행된다.
 
@@ -25,3 +26,28 @@
     1. image파일 사용
     <pre><code>app.use(express.static('public'));  // public디렉토리 안에서 static파일을 찾음
     </code></pre>
+
+
+###Security
+-----------
+
+  - Node.js Express Security
+    > https://expressjs.com/ko/advanced/best-practice-security.html
+    <pre><code>npm install nsp -g
+    nsp check   // 종속성 오류가 있는지 확인해줌</code></pre>
+
+
+###Express Generator
+----------
+
+  - 기본 Express 자동 생성방법
+    > https://expressjs.com/ko/starter/generator.html
+
+
+###Database 통합
+----------
+  - Express에서 각종 데이터베이스 사용방법
+    > https://expressjs.com/ko/guide/database-integration.html
+
+
+    

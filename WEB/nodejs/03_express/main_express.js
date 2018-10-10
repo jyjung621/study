@@ -5,15 +5,10 @@
 /*
  * express 실습
  */
-
 const express = require('express');
 const app = express();
 const port = 3000;
 var fs = require('fs');
-var qs = require('querystring');
-var path = require('path');
-var template = require('./lib/template.js');
-var sanitizeHtml = require('sanitize-html');
 
 /**
  *  middleware 사용해보기
@@ -26,7 +21,13 @@ var compression = require('compression');
 /**
  *  Router 를 사용하여 코드 정리하기
  */
+var indexRouter = require('./routes/index')
 var topicRouter = require('./routes/topic');
+
+/**
+ *  보안강화 Helmet 사용해보기
+ */
+var helmet = require('helmet');
 
 
 /****************************************************************************************** 
@@ -39,6 +40,8 @@ var topicRouter = require('./routes/topic');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 app.use(express.static('public'));
+app.use(helmet());
+
 /* 
 app.use(function (request, response, next) {
   fs.readdir('./data', function (error, filelist) {
@@ -58,44 +61,33 @@ app.get('*', function (request, response, next) {
   });
 });
 
+
+ /****************************************************************************************** 
+ *  Main (router로 정리하였기에....)
+ ******************************************************************************************/
 // /topic 으로 시작하는 주소에 topicRouter라는 middleware를 적용 한다는 의미
+app.use('/', indexRouter);
 app.use('/topic', topicRouter);
 
 
 
  /****************************************************************************************** 
- *  Main
+ *  Error Process
  ******************************************************************************************/
-/*
- *  function 사용 방법
- */
-// app.get('/', (req, res) => res.send('Hello World!'));
-app.get('/', function (request, response) {
-  //fs.readdir('./data', function (error, filelist) {
-  var title = 'Welcome';
-  var description = 'Hello, Node.js';
-  // 내가 만든 middleware를 통하여 filelist -> request.list로 대체할수 있음
-  var list = template.list(request.list);
-  var html = template.HTML(title, list,
-    `<h2>${title}</h2><p>${description}</p>
-     <img src="/images/hello.jpg" style="width:300px; display:block; margin-top:20px;">
-    `,
-    `<a href="/topic/create">create</a>`
-  );
-  response.send(html);
-  //});
-});
-
-// // page를 찾을수 없을 경우를 나타낼때
+// page를 찾을수 없을 경우를 나타낼때
 app.use(function (request, response, next) {
   response.status(404).send('Sorry cant find that!');
 });
 
 // error handler 내가 원하는 방식으로 꾸미기
-// app.use(function (err, request, response, next) {
-//   response.status(500).send('Something broke!');
-// });
+app.use(function (err, request, response, next) {
+  response.status(500).send('Something broke!');
+});
 
+
+ /****************************************************************************************** 
+ *  listen
+ ******************************************************************************************/
 // app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 app.listen(port, function () {
   return console.log(`Example app listening on port ${port}!`);

@@ -8,10 +8,12 @@
     > nodejs에서 많이 사용됨
     > PM2검색하면 homepage 나옴
   - 설치방법
-      <pre><code>npm install pm2 -g</code><pre>
+    <pre><code>
+        npm install pm2 -g
+    </code><pre>
  
   - 실행방법
-    <pre><code>pm2 start main.js
+    <pre><code>  pm2 start main.js
       pm2 list
       pm2 stop main
       pm2 stop    
