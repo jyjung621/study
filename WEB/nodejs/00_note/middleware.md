@@ -15,12 +15,13 @@
 
   - 내가 직접  middleware 만들어보기
     - middleware의 기본구성
+    <pre><code>
         var myLogger = function (req, res, next) {
             console.log('LOGGED')
             next()
         }
         app.use(myLogger)
-
+    </code></pre>
   - 정적인 파일을 사용하기
     1. image파일 사용
         app.use(express.static('public'));  // public디렉토리 안에서 static파일을 찾음
