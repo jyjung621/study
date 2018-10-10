@@ -24,4 +24,6 @@
     </code></pre>
   - 정적인 파일을 사용하기
     1. image파일 사용
+    <pre><code>
         app.use(express.static('public'));  // public디렉토리 안에서 static파일을 찾음
+    </code></pre>
