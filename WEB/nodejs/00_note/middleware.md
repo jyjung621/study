@@ -7,11 +7,11 @@
   - 남이 많든 middleware 사용해보기
     1. body-parser
         post 방식으로 받은 데이터를 간편하게 처리하기 위한 방법
-        # npm install body-parser --save
+        > npm install body-parser --save
 
     2. compression
         용량이 많은 page의 data를 압축해서 관리
-        # npm install compression --save
+        > npm install compression --save
 
   - 내가 직접  middleware 만들어보기
     - middleware의 기본구성
