@@ -36,7 +36,7 @@ var app = http.createServer(function (request, response) {
 
         response.writeHead(200);
         response.end(html);
-      })
+      });
 
       // id 값 선택한 page
     } else {
@@ -54,7 +54,7 @@ var app = http.createServer(function (request, response) {
           var sanitizedTitle = sanitizeHtml(title);
           // allowedTags:[] => 허용하고자 하는 태그
           var sanitizedDescription = sanitizeHtml(description, {
-            allowedTags:['h1']
+            allowedTags: ['h1']
           });
           var list = template.list(filelist);
           var html = template.html(title, list, `<h2>${sanitizedTitle}</h2><p>${sanitizedDescription}</p>`, `<a href='/create'>create</a> 
@@ -180,6 +180,53 @@ var app = http.createServer(function (request, response) {
         response.writeHead(302, { Location: `/` });
         response.end();
       });
+    });
+  } else if (pathname === '/login') {
+    fs.readdir('./data', function (error, filelist) {
+      var title = 'Welcome';
+      var description = 'Hello, Node.js';
+      // list를 file목록에서 읽어와서 자동으로 생성되게 함
+      var list = template.list(filelist);
+      // html code 생성
+      var html = template.html(title, list,
+        `
+          <form action="login_process" method="post">
+            <p><input type="text" name="email" placeholder="email"></p>
+            <p><input type="password" name="password" placeholder="password"></p>
+            <p><input type="submit"></p>
+          </form>`,
+        `<a href='/create'>create</a>`
+      );
+
+      response.writeHead(200);
+      response.end(html);
+    });
+
+  } else if (pathname === '/login_process') {
+    var body = '';
+
+    request.on('data', function (data) {
+      body += data;
+      if (body.length > 1e6) {
+        request.connection.destroy();
+      }
+    });
+
+    request.on('end', function () {
+      var post = qs.parse(body);
+      if (post.email === 'egoing777@gmail.com' && post.password === '111111') {
+        response.writeHead(302, {
+          'Set-Cookie': [
+            `email=${post.email}`,
+            `password=${post.password}`,
+            `nickname=${post.nickname}`
+          ],
+          Location: `/`
+        });
+        response.end();
+      } else {
+        response.end('Who??');
+      }
     });
 
   } else {
