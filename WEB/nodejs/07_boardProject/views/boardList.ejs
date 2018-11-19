@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title><%= title %></title>
+
+</head>
+<body>
+    <h2>Board Project TEST</h2>
+    
+    <a href="writeForm">글쓰기</a>
+    <table border="2">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성자</th>
+            <th>조회수</th>
+        </tr>
+        <%
+            for(var i = 0; i<list.length; i++)
+            {
+        %>
+        <tr>
+            <td><%=list[i].boardNo%></td>
+            <td><%=list[i].title%></td>
+            <td><%=list[i].content%></td>
+            <td><%=list[i].memberId%></td>
+            <td><%=list[i].hits%></td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
+</body>
+</html>
