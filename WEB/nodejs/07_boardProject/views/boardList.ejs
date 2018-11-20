@@ -24,7 +24,7 @@
         <tr>
             <td><%=list[i].boardNo%></td>
             <td><%=list[i].title%></td>
-            <td><%=list[i].content%></td>
+            <td><a href="/board/contentView?boardNo=<%=list[i].boardNo%>"><%=list[i].content%></a></td>
             <td><%=list[i].memberId%></td>
             <td><%=list[i].hits%></td>
         </tr>

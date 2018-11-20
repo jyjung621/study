@@ -42,14 +42,15 @@ router.get('/writeForm', function(request, response) {
 
 router.post('/writePro', function(request, response) {
     var title = request.body.title;
-    console.log("title -> " + title);
+    // console.log("title -> " + title);
     var content = request.body.content;
-    console.log("content -> " + content);
+    // console.log("content -> " + content);
     var writer = request.body.memberId;
-    console.log("writer -> " + writer);
+    // console.log("writer -> " + writer);
     db.query('select count(*) cnt from board', function(err1, cnt) {
-        console.log('cnt --> ' + cnt[0].cnt);
+        // console.log('cnt --> ' + cnt[0].cnt);
         var boardNo = cnt[0].cnt + 1;
+        // console.log('boardNo --> ' + boardNo);
         if(err1) {
             console.log('writePro err1 ... ');
             throw err1;
@@ -62,7 +63,24 @@ router.post('/writePro', function(request, response) {
         });
     });
 
-    response.redirect('/board/list');
+    response.redirect('list');
+});
+
+router.get('/contentView', function(request, response) {
+    var boardNo = request.query.boardNo;
+    console.log('/content --> boardNo : ' + boardNo);
+    
+    db.query('select * from board where boardNo=?',[boardNo],function(err, data){
+        if(err) {
+            console.log('contentView err ...');
+            throw err;
+        }
+
+        response.render('boardContentView.ejs', {
+            title : "Content View",
+            board : data
+        });
+    });
 });
 
 module.exports = router;

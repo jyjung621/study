@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title><%= title %></title>
+
+</head>
+<body>
+    <h2>Board Project TEST</h2>
+
+    <form action="writePro" method="POST">
+        <table border="1">
+            <tr>
+                <th>제목</th>
+                <td><%=board[0].title%></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><%=board[0].content%></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td><%=board[0].memberId%></td>
+            </tr>
+        </table>
+        <input type="submit" value="작성완료">
+    </form>
+</body>
+</html>
