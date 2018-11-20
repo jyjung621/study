@@ -10,7 +10,13 @@ var db = mysql.createConnection({
 });
 
 // Real connection
-db.connect();
+db.connect(function(err) {
+    if (err) {
+        console.error('mysql connection error :' + err);
+      } else {
+        console.info('mysql is connected successfully.');
+      }
+});
 
 // 외부에서 실행가능하게 함
 module.exports = db;

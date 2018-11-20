@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>LogIn</title>
+
+</head>
+<body>
+    <h2>Board Project TEST</h2>
+   
+    <div align="center">
+        <h3>회원가입</h3>
+        
+        <form action="joinPro" method="POST">
+            <table style="width: 40%">
+            <tr>
+                <th style="width: 30%">이메일</th>
+                <td><input type="text" name="email" placeholder="이메일" required="required"></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="text" name="passwd" placeholder="비밀번호" required="required"></td>
+            </tr>
+            <tr>
+                <th>닉네임</th>
+                <td><input type="text" name="nickName" placeholder="닉네임" required="required"></td>
+            </tr>
+            <tr>
+                <th>연락처</th>
+                <td><input type="tel" name="telNum" placeholder="연락처" required="required"></td>
+            </tr>
+            </table>
+            <p>
+                <input type="submit" value="작성완료">
+                <input type="reset" value="다시작성">
+            </p>
+        </form>
+        <p><input type="button" value="돌아가기" onclick="location.replace('loginForm')"></p>
+    </div>
+</body>
+</html>

@@ -18,15 +18,15 @@
             <th>조회수</th>
         </tr>
         <%
-            for(var i = 0; i<list.length; i++)
+            for(var key in list)
             {
         %>
         <tr>
-            <td><%=list[i].boardNo%></td>
-            <td><%=list[i].title%></td>
-            <td><a href="/board/contentView?boardNo=<%=list[i].boardNo%>"><%=list[i].content%></a></td>
-            <td><%=list[i].memberId%></td>
-            <td><%=list[i].hits%></td>
+            <td><%=list[key].boardNo%></td>
+            <td><%=list[key].title%></td>
+            <td><a href="/board/contentView?boardNo=<%=list[key].boardNo%>"><%=list[key].content%></a></td>
+            <td><%=list[key].memberId%></td>
+            <td><%=list[key].hits%></td>
         </tr>
         <%
             }

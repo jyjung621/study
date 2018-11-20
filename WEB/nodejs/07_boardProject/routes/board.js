@@ -67,7 +67,9 @@ router.post('/writePro', function(request, response) {
 });
 
 router.get('/contentView', function(request, response) {
+// router.get('/contentView/:boardNo', function(request, response) {
     var boardNo = request.query.boardNo;
+    // var boardNo = request.params.boardNo;
     console.log('/content --> boardNo : ' + boardNo);
     
     db.query('select * from board where boardNo=?',[boardNo],function(err, data){
@@ -82,5 +84,7 @@ router.get('/contentView', function(request, response) {
         });
     });
 });
+
+
 
 module.exports = router;
