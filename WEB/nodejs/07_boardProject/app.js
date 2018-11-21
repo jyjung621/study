@@ -10,6 +10,9 @@ const port = 3000;
 var db = require('./lib/db');
 // compression -> page용량이 클경우 압축해서 관리
 var compression = require('compression');
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
+
 
 // router
 var indexRouter = require('./routes/index');
@@ -27,6 +30,12 @@ var helmet = require('helmet');
  ******************************************************************************************/
 app.use(compression());
 app.use(helmet());
+app.use(session({
+  secret: 'dfbvhas%#@$dvns',
+  resave: false,
+  saveUninitialized: true,
+  store: new FileStore()
+}))
 
 
  /****************************************************************************************** 

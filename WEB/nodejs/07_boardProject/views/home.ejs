@@ -9,7 +9,8 @@
     <h2>Board Project TEST</h2>
 
     <p>HOME PAGE!!</p>
-    <input type="button" name="goBoard" value="게시판 이동" onclick="location.replace('/board/list')">&nbsp;&nbsp;
-    <input type="button" name="goLogin" value="로그인" onclick="location.replace('/member')">
+    <p><%=nickName%>님 환영합니다.</p>
+    <input type="button" name="goBoard" value="게시판 이동" onclick="location.replace('/board/list')" disabled="true">&nbsp;&nbsp;
+    <input type="button" name="goLogout" value="로그아웃" onclick="location.replace('/member/logoutPro')">
 </body>
 </html>

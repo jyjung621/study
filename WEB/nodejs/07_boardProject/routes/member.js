@@ -42,7 +42,12 @@ router.post('/loginPro', (request, response) => {
         } else {
             if(body.passwd === rs[0].passwd) {
                 console.log('로그인... 성공!!');
-                return response.redirect('/home');
+                request.session.is_logined = true;
+                request.session.nickName = rs[0].nickName;
+                request.session.grade = rs[0].grade;
+                request.session.save(function() {
+                    return response.redirect('/home');
+                });
             } else {
                 console.log('로그인... 실패 (비밀번호 오류)');
                 return response.render('memberLoginForm.ejs', {
@@ -51,6 +56,19 @@ router.post('/loginPro', (request, response) => {
             }
         }
     });
+});
+
+router.get('/logoutPro', (request, response) => {
+    if(request.session.is_logined) {
+        request.session.destroy(function(err) {
+            if(err) {
+                console.log('logout error : ' + err);
+                throw err;
+            } else {
+                response.redirect('/');
+            }
+        });
+    }
 });
 
 router.get('/joinForm', (request, response) => {
@@ -69,6 +87,9 @@ router.post('/joinPro', (request, response) => {
     });
 });
 
+router.get('/searchIdPw', (request, response) => {
+    response.render('memberSearchIdPw');
+});
 
 
 

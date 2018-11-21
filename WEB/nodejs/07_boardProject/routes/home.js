@@ -20,7 +20,7 @@ router.get('/', (request, response) => {
 
 router.get('/main', (request, response) => {
     response.render('home.ejs', {
-        message : ""
+        nickName : request.session.nickName
     });
 });
 

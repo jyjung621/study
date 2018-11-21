@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>LogIn</title>
 
+    <style type="text/css">
+        th {
+            text-align: left;
+            width: 30%;
+        }
+    </style>
 </head>
 <body>
     <h2>Board Project TEST</h2>
@@ -14,12 +20,18 @@
         <form action="joinPro" method="POST">
             <table style="width: 40%">
             <tr>
-                <th style="width: 30%">이메일</th>
+                <th>이메일</th>
                 <td><input type="text" name="email" placeholder="이메일" required="required"></td>
+                <td></td>
             </tr>
             <tr>
                 <th>비밀번호</th>
-                <td><input type="text" name="passwd" placeholder="비밀번호" required="required"></td>
+                <td><input type="password" name="passwd" id="passwd" placeholder="비밀번호" required="required"></td>
+            </tr>
+            <tr>
+                <th>비밀번호 확인</th>
+                <td><input type="password" name="passwd1" id="passwd1" placeholder="비밀번호" required="required"></td>
+                <td></td>
             </tr>
             <tr>
                 <th>닉네임</th>
