@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="student1" class="com.oracle.DI03.Student">
+		<constructor-arg name="name" value="연개소문"></constructor-arg>
+		<constructor-arg name="age" value="30살"></constructor-arg>
+		<constructor-arg name="gradeNum" value="4학년"></constructor-arg>
+		<constructor-arg name="classNum" value="1반"></constructor-arg>
+	</bean>
+	
+<!-- 	
+		생성자에서는 name선언 하지 않아도 순서대로 사용하면 가능함
+		(일반적으로 생성자는 name 선언 하지 않고 사용함)
+-->
+	<bean id="student2" class="com.oracle.DI03.Student">
+<!-- 		<constructor-arg name="name" value="김유신"></constructor-arg> -->
+<!-- 		<constructor-arg name="age" value="25살"></constructor-arg> -->
+<!-- 		<constructor-arg name="gradeNum" value="3학년"></constructor-arg> -->
+<!-- 		<constructor-arg name="classNum" value="2반"></constructor-arg> -->
+		<constructor-arg value="김유신"></constructor-arg>
+		<constructor-arg value="25살"></constructor-arg>
+		<constructor-arg value="3학년"></constructor-arg>
+		<constructor-arg value="2반"></constructor-arg>
+	</bean>
+	<bean id="studentInfo" class="com.oracle.DI03.StudentInfo">
+		<constructor-arg><ref bean="student1"></ref></constructor-arg> 
+	</bean>
+
+</beans>

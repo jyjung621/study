@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="vh" class="sam07.VehicleImpl">
+		<constructor-arg value="발없는새"></constructor-arg>
+<!-- 		<property name="name" value="발없는새"></property> -->
+		<property name="rider" value="할리데이빗"></property>
+		<property name="speed" value="100"></property>
+	</bean>
+
+</beans>
