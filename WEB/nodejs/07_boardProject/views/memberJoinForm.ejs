@@ -10,6 +10,11 @@
             width: 30%;
         }
     </style>
+    <script type="text/javascript">
+        $(function () {
+            
+        });
+    </script>
 </head>
 <body>
     <h2>Board Project TEST</h2>
@@ -20,9 +25,8 @@
         <form action="joinPro" method="POST">
             <table style="width: 40%">
             <tr>
-                <th>이메일</th>
-                <td><input type="text" name="email" placeholder="이메일" required="required"></td>
-                <td></td>
+                <th>아이디(이메일)</th>
+                <td><input type="email" name="memberId" placeholder="이메일" required="required"></td>
             </tr>
             <tr>
                 <th>비밀번호</th>
@@ -31,7 +35,7 @@
             <tr>
                 <th>비밀번호 확인</th>
                 <td><input type="password" name="passwd1" id="passwd1" placeholder="비밀번호" required="required"></td>
-                <td></td>
+                <td id="pw"></td>
             </tr>
             <tr>
                 <th>닉네임</th>

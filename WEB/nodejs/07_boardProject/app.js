@@ -19,6 +19,7 @@ var indexRouter = require('./routes/index');
 var boardRouter = require('./routes/board');
 var memberRouter = require('./routes/member');
 var homeRouter = require('./routes/home');
+var bookRouter = require('./routes/book');
 
 
 
@@ -45,6 +46,8 @@ app.use('/', indexRouter);
 app.use('/board', boardRouter);
 app.use('/member', memberRouter);
 app.use('/home', homeRouter);
+app.use('/book', bookRouter);
+
 
 
 

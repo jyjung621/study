@@ -6,7 +6,8 @@ var db = mysql.createConnection({
     host      : 'localhost',
     user      : 'ruin',
     password  : '1234',
-    database  : 'opentutorials'
+    database  : 'opentutorials',
+    dateStrings: 'date'
 });
 
 // Real connection

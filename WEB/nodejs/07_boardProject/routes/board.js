@@ -55,7 +55,7 @@ router.post('/writePro', function(request, response) {
             console.log('writePro err1 ... ');
             throw err1;
         }
-        db.query('insert into board (boardNo, title, content, memberId, regDate) values (?, ?, ?, ?, sysdate())',[boardNo,title,content,writer], function(err2,data) {
+        db.query('insert into board (boardNo, title, content, userId, regDate) values (?, ?, ?, ?, sysdate())',[boardNo,title,content,writer], function(err2,data) {
             if(err2) {
                 console.log('writePro err2 ... ');
                 throw err2;
@@ -80,7 +80,7 @@ router.get('/contentView', function(request, response) {
 
         response.render('boardContentView.ejs', {
             title : "Content View",
-            board : data
+            board : data[0]
         });
     });
 });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title><%= title %></title>
 
 </head>
@@ -12,18 +12,24 @@
         <table border="1">
             <tr>
                 <th>제목</th>
-                <td><%=board[0].title%></td>
+                <td><%=board.title%></td>
             </tr>
             <tr>
                 <th>내용</th>
-                <td><%=board[0].content%></td>
+                <td><%=board.content%></td>
             </tr>
             <tr>
                 <th>작성자</th>
-                <td><%=board[0].memberId%></td>
+                <td><%=board.userId%></td>
+            </tr>
+            <tr>
+                <th>작성일</th>
+                <td><%=board.regDate%></td>
             </tr>
         </table>
-        <input type="submit" value="작성완료">
+        <input type="submit" value="수정하기">
+        <input type="button" value="목록" onclick="location.replace('list')">
     </form>
+        
 </body>
 </html>

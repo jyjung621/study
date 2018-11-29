@@ -28,7 +28,7 @@ router.get('/loginForm', (request, response) => {
 router.post('/loginPro', (request, response) => {
     var body = request.body;
    
-    db.query("select * from member where email=?",[body.email], (err, rs) => {
+    db.query("select * from member where memberid=?",[body.memberId], (err, rs) => {
         if(err) {
             console.log('loginPro select error : ' + err);
             throw err;
@@ -43,7 +43,7 @@ router.post('/loginPro', (request, response) => {
             if(body.passwd === rs[0].passwd) {
                 console.log('로그인... 성공!!');
                 request.session.is_logined = true;
-                request.session.nickName = rs[0].nickName;
+                request.session.nickname = rs[0].nickname;
                 request.session.grade = rs[0].grade;
                 request.session.save(function() {
                     return response.redirect('/home');
@@ -78,12 +78,19 @@ router.get('/joinForm', (request, response) => {
 router.post('/joinPro', (request, response) => {
     var body = request.body;
 
-    db.query("insert into member values (?,?,?,?,'3',sysdate())",[body.email, body.passwd, body.nickName, body.telNum], (err, rs) => {
+    db.query("insert into member values (fn_maxTablenum('member'),?,?,?,?,'3',sysdate())",[body.memberId, body.passwd, body.nickName, body.telNum], (err, rs) => {
         if(err) {
-            console.log('joinPro insert error : ' + err);
+            console.log('joinPro member insert error : ' + err);
             throw err;
         }
-        return response.redirect('loginForm');
+        db.query("INSERT INTO moneybook (bookNo, bookName, userId, kinds, parentBook, meno, regDate) \
+          VALUES (fn_maxTablenum('moneybook',?),'메인가계부',?,'0',null,null,NOW())", [body.memberId, body.memberId], (err2, rs) => {
+            if(err2) {
+                console.log('joinPro moneybook insert error : ' + err2);
+                throw err2;
+            }
+            return response.redirect('loginForm');
+          });
     });
 });
 
