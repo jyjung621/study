@@ -31,6 +31,7 @@ var helmet = require('helmet');
  ******************************************************************************************/
 app.use(compression());
 app.use(helmet());
+app.use(express.static(__dirname + '/resources'));
 app.use(session({
   secret: 'dfbvhas%#@$dvns',
   resave: false,

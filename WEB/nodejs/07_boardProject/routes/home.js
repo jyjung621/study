@@ -13,6 +13,9 @@ app.engine('ejs', ejs.renderFile);
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
+router.get('/sampleView', (req, res) => {
+    res.render('basicForm1.ejs');
+});
 
 router.get('/', (request, response) => {
     response.redirect('/home/main');
