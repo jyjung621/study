@@ -19,7 +19,7 @@ router.get('/', (request, response) => {
 });
 
 router.get('/loginForm', (request, response) => {
-    response.render('memberLoginForm.ejs', {
+    response.render('member/loginForm.ejs', {
         message : ""
     });
 });
@@ -28,7 +28,7 @@ router.get('/loginForm', (request, response) => {
 router.post('/loginPro', (request, response) => {
     var body = request.body;
    
-    db.query("select * from member where memberid=?",[body.memberId], (err, rs) => {
+    db.query("select * from member where memberid=?",[body.memberId], (err, memberInfo) => {
         if(err) {
             console.log('loginPro select error : ' + err);
             throw err;
@@ -36,21 +36,32 @@ router.post('/loginPro', (request, response) => {
         // console.log('rs --> ' + rs[0]);
         if(!rs[0]) {
             console.log('회원 정보 없음...');
-            return response.render('memberLoginForm.ejs', {
+            return response.render('member/loginForm.ejs', {
                 message : "로그인 실패(회원정보 없음)" 
             });
         } else {
             if(body.passwd === rs[0].passwd) {
                 console.log('로그인... 성공!!');
-                request.session.is_logined = true;
-                request.session.nickname = rs[0].nickname;
-                request.session.grade = rs[0].grade;
-                request.session.save(function() {
-                    return response.redirect('/home');
+                /* db.query("select * from moneybook where userId=?",[memberInfo[0].memberId], (err2, bookList) => {
+                    if(err2) {
+                        console.log('loginPro selectBook error : ' + err2);
+                        throw err2;
+                    } */
+                    request.session.is_logined = true;
+                    request.session.userId = memberInfo[0].memberId;
+                    request.session.nickname = memberInfo[0].nickname;
+                    request.session.grade = memberInfo[0].grade;
+                    request.session.phone = memberInfo[0].phone;
+                    /* request.session.bookList = bookList;
+                    console.log('BookList -> ' + bookList); */
+                    request.session.save(function() {
+                        return response.redirect('/home');
+                    /* }); */
                 });
+                
             } else {
                 console.log('로그인... 실패 (비밀번호 오류)');
-                return response.render('memberLoginForm.ejs', {
+                return response.render('member/loginForm.ejs', {
                     message : "로그인 실패(비밀번호 재확인)" 
                 });
             }
@@ -72,19 +83,19 @@ router.get('/logoutPro', (request, response) => {
 });
 
 router.get('/joinForm', (request, response) => {
-    response.render('memberJoinForm.ejs');
+    response.render('member/joinForm.ejs');
 });
 
 router.post('/joinPro', (request, response) => {
     var body = request.body;
 
-    db.query("insert into member values (fn_maxTablenum('member'),?,?,?,?,'3',sysdate())",[body.memberId, body.passwd, body.nickName, body.telNum], (err, rs) => {
+    db.query("insert into member values (fn_maxTablenum('member','0'),?,?,?,?,'3',sysdate())",[body.memberId, body.passwd, body.nickName, body.telNum], (err, rs) => {
         if(err) {
             console.log('joinPro member insert error : ' + err);
             throw err;
         }
-        db.query("INSERT INTO moneybook (bookNo, bookName, userId, kinds, parentBook, meno, regDate) \
-          VALUES (fn_maxTablenum('moneybook',?),'메인가계부',?,'0',null,null,NOW())", [body.memberId, body.memberId], (err2, rs) => {
+        db.query("INSERT INTO moneybook (bookNo, bookName, userId, kinds, parentBook, memo, regDate) \
+          VALUES (1,'메인가계부',?,'0',1,null,NOW())", [body.memberId, body.memberId], (err2, rs) => {
             if(err2) {
                 console.log('joinPro moneybook insert error : ' + err2);
                 throw err2;
@@ -95,7 +106,7 @@ router.post('/joinPro', (request, response) => {
 });
 
 router.get('/searchIdPw', (request, response) => {
-    response.render('memberSearchIdPw');
+    response.render('member/searchIdPw.ejs');
 });
 
 

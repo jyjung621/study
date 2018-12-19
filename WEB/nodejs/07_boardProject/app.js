@@ -43,6 +43,23 @@ app.use(session({
  /****************************************************************************************** 
  *  Main (router로 정리하였기에....)
  ******************************************************************************************/
+app.use(function(req, res, next) {
+  if(req.session.is_logined){
+    res.locals.is_logined = req.session.is_logined;
+    res.locals.userId = req.session.userId;
+    res.locals.nickname = req.session.nickname;
+    res.locals.grade = req.session.grade;
+    res.locals.phone = req.session.phone;
+    res.locals.bookList = req.session.bookList;
+  } else {
+    res.locals.is_logined = undefined;
+    res.locals.nickname = undefined;
+    res.locals.grade = undefined;
+    res.locals.phone = undefined;
+    res.locals.bookList = undefined;
+  }
+  next();
+});
 app.use('/', indexRouter);
 app.use('/board', boardRouter);
 app.use('/member', memberRouter);

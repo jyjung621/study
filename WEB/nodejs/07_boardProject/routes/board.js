@@ -15,7 +15,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get('/list', function(request, response) {
     
-    db.query('select * from board', function(err, data) {
+    db.query('select * from board order by regDate desc, boardNo desc', function(err, data) {
         if(err) {
             throw err;
         }
@@ -23,7 +23,7 @@ router.get('/list', function(request, response) {
        /*  console.log('data --> ' + data);
         console.log('data[0].content --> ' + data[0].content); */
 
-        response.render('boardList.ejs', {
+        response.render('board/boardList.ejs', {
             title : "boardList",
             list : data
         });
@@ -31,12 +31,10 @@ router.get('/list', function(request, response) {
 });
 
 router.get('/writeForm', function(request, response) {
-    var title = "writeForm";
-    var memberId = "rucy";
+    var title = "자유게시판";
 
-    response.render('boardWriteForm.ejs', {
+    response.render('board/boardWriteForm.ejs', {
         title : title,
-        memberId : memberId
     });
 });
 
@@ -78,8 +76,8 @@ router.get('/contentView', function(request, response) {
             throw err;
         }
 
-        response.render('boardContentView.ejs', {
-            title : "Content View",
+        response.render('board/boardContentView.ejs', {
+            title : "자유게시판",
             board : data[0]
         });
     });

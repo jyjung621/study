@@ -26,11 +26,8 @@ router.get('/list', (request, response) => {
             throw err;
         }
         /* console.log('session --> ' + session); */
-        response.render('moneybookList.ejs', {
-            list : rs,
-            is_logined : session.is_logined,
-            nickname : session.nickname,
-            grade : session.grade
+        response.render('moneybook/bookList.ejs', {
+            list : rs
         });
     });
     
